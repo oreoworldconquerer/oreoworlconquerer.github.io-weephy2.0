@@ -4,13 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#6366f1">
-    <title>Weephy 2.0 - Premium Study Materials Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Chair Physics - Revolutionary Engineering Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Password Bar Styles */
+        .password-container {
+            margin-bottom: clamp(20px, 4vw, 30px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.8s ease 0.4s both;
+        }
+
+        .search-label {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #3D3D3D;
+            padding: 9px;
+            cursor: text;
+            max-width: 400px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .search-label:hover {
+            border-color: gray;
+        }
+
+        .search-label:focus-within {
+            background: #464646;
+            border-color: gray;
+        }
+
+        .search-label input {
+            outline: none;
+            width: 100%;
+            border: none;
+            background: none;
+            color: rgb(162, 162, 162);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .search-label input:focus+.slash-icon,
+        .search-label input:valid+.slash-icon {
+            display: none;
+        }
+
+        .search-label input:valid~.search-icon {
+            display: block;
+        }
+
+        .search-label input:valid {
+            width: calc(100% - 22px);
+            transform: translateX(20px);
+        }
+
+        .search-label svg,
+        .slash-icon {
+            position: absolute;
+            color: #7e7e7e;
+        }
+
+        .search-icon {
+            display: none;
+            width: 12px;
+            height: auto;
+        }
+
+        .slash-icon {
+            right: 7px;
+            border: 1px solid #393838;
+            background: linear-gradient(-225deg, #343434, #6d6d6d);
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: inset 0 -2px 0 0 #3f3f3f, inset 0 0 1px 1px rgb(94, 93, 93), 0 1px 2px 1px rgba(28, 28, 29, 0.4);
+            cursor: pointer;
+            font-size: 12px;
+            width: 15px;
+        }
+
+        .slash-icon:active {
+            box-shadow: inset 0 1px 0 0 #3f3f3f, inset 0 0 1px 1px rgb(94, 93, 93), 0 1px 2px 0 rgba(28, 28, 29, 0.4);
+            text-shadow: 0 1px 0 #7e7e7e;
+            color: transparent;
+        }
+
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
@@ -154,6 +242,26 @@
             }
         }
 
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes notificationSlide {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
         .logo-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -190,6 +298,25 @@
             animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
 
+        /* Fix for Flaticon icons alignment */
+        .logo-icon i,
+        .tab-icon,
+        .material-info i,
+        .download-btn i,
+        .project-title i,
+        .team-name i,
+        .feedback-title i,
+        .origin-title i,
+        .components-list h3 i,
+        .filter-wrapper i,
+        .funding-badge i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
         @keyframes ping {
             75%, 100% {
                 transform: scale(1.5);
@@ -213,6 +340,7 @@
             letter-spacing: -0.02em;
             line-height: 1.2;
             word-break: break-word;
+            font-family: 'Orbitron', 'Inter', sans-serif;
         }
 
         .tagline {
@@ -221,6 +349,7 @@
             font-weight: 400;
             margin-top: clamp(10px, 2vw, 15px);
             line-height: 1.5;
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         .funding-badge {
@@ -239,6 +368,7 @@
             transition: all 0.3s ease;
             text-align: center;
             max-width: 90%;
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         .funding-badge:hover {
@@ -289,6 +419,7 @@
             justify-content: center;
             gap: 10px;
             touch-action: manipulation;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
         .nav-tab::before {
@@ -388,6 +519,7 @@
             letter-spacing: -0.02em;
             line-height: 1.2;
             word-break: break-word;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
         /* Filter Controls */
@@ -404,7 +536,7 @@
             border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 12px;
             padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 20px);
-            padding-left: clamp(40px, 8vw, 45px);
+            padding-left: clamp(45px, 8vw, 50px);
             font-size: clamp(0.9em, 2vw, 1em);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
@@ -424,7 +556,7 @@
 
         .filter-wrapper i {
             position: absolute;
-            left: 15px;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: #10b981;
@@ -476,6 +608,28 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* Restricted Access Blur */
+        .material-card.restricted {
+            pointer-events: none;
+        }
+
+        .material-card.restricted::after {
+            content: 'RESTRICTED ACCESS';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2em, 3vw, 1.5em);
+            font-weight: 800;
+            color: #ef4444;
+            z-index: 10;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+
         .material-card::before {
             content: '';
             position: absolute;
@@ -500,17 +654,17 @@
             z-index: 2;
         }
 
-        .material-card:hover::before,
-        .material-card:focus-within::before {
+        .material-card:not(.restricted):hover::before,
+        .material-card:not(.restricted):focus-within::before {
             opacity: 0.7;
         }
 
-        .material-card:hover::after,
-        .material-card:focus-within::after {
+        .material-card:not(.restricted):hover::after,
+        .material-card:not(.restricted):focus-within::after {
             transform: scaleX(1);
         }
 
-        .material-card:active {
+        .material-card:not(.restricted):active {
             transform: scale(0.98);
         }
 
@@ -589,151 +743,11 @@
             z-index: 1;
         }
 
-        /* Folder Icon Styles */
-        .folder-icon-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: clamp(15px, 3vw, 20px);
-            min-height: clamp(120px, 25vw, 180px);
-        }
-
-        .file {
-            position: relative;
-            width: clamp(160px, 35vw, 240px);
-            height: clamp(107px, 23vw, 160px);
-            cursor: pointer;
-            transform-origin: bottom;
-            perspective: 1500px;
-            z-index: 50;
-        }
-
-        .work-5 {
-            background: #d97706;
-            width: 100%;
-            height: 100%;
-            transform-origin: top;
-            border-radius: clamp(0.6rem, 1.5vw, 1rem);
-            border-top-left-radius: 0;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .work-5::after {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            width: clamp(53px, 12vw, 80px);
-            height: clamp(11px, 2.5vw, 16px);
-            background: #d97706;
-            border-top-left-radius: clamp(0.6rem, 1.5vw, 1rem);
-            border-top-right-radius: clamp(0.6rem, 1.5vw, 1rem);
-        }
-
-        .work-5::before {
-            content: '';
-            position: absolute;
-            top: clamp(-10px, -2vw, -15px);
-            left: clamp(50px, 11vw, 75.5px);
-            width: clamp(11px, 2.5vw, 16px);
-            height: clamp(11px, 2.5vw, 16px);
-            background: #d97706;
-            clip-path: polygon(0 35%, 0% 100%, 50% 100%);
-        }
-
-        .work-4, .work-3, .work-2 {
-            position: absolute;
-            inset: 4px;
-            border-radius: clamp(0.6rem, 1.5vw, 1rem);
-            transition: all 0.3s ease;
-            transform-origin: bottom;
-        }
-
-        .work-4 {
-            background: #a1a1aa;
-        }
-
-        .work-3 {
-            background: #d4d4d8;
-        }
-
-        .work-2 {
-            background: #e4e4e7;
-        }
-
-        .work-1 {
-            position: absolute;
-            bottom: 0;
-            background: linear-gradient(to top, #f59e0b, #fbbf24);
-            width: 100%;
-            height: clamp(104px, 23vw, 156px);
-            border-radius: clamp(0.6rem, 1.5vw, 1rem);
-            border-top-right-radius: 0;
-            transition: all 0.3s ease;
-            transform-origin: bottom;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .work-1::after {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            right: 0;
-            width: clamp(97px, 21vw, 146px);
-            height: clamp(11px, 2.5vw, 16px);
-            background: #fbbf24;
-            border-top-left-radius: clamp(0.6rem, 1.5vw, 1rem);
-            border-top-right-radius: clamp(0.6rem, 1.5vw, 1rem);
-        }
-
-        .work-1::before {
-            content: '';
-            position: absolute;
-            top: clamp(-7px, -1.5vw, -10px);
-            right: clamp(95px, 21vw, 142px);
-            width: clamp(8px, 1.8vw, 12px);
-            height: clamp(8px, 1.8vw, 12px);
-            background: #fbbf24;
-            clip-path: polygon(100% 14%, 50% 100%, 100% 100%);
-        }
-
         @media (hover: hover) {
-            .material-card:hover .work-4 {
-                transform: rotateX(-20deg);
-            }
-
-            .material-card:hover .work-3 {
-                transform: rotateX(-30deg);
-            }
-
-            .material-card:hover .work-2 {
-                transform: rotateX(-38deg);
-            }
-
-            .material-card:hover .work-1 {
-                box-shadow: inset 0 20px 40px #fbbf24, inset 0 -20px 40px #d97706;
-                transform: rotateX(-46deg) translateY(1px);
-            }
-
             .nav-tab:hover {
                 transform: translateY(-5px) scale(1.02);
                 box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
                 border-color: rgba(99, 102, 241, 0.4);
-            }
-
-            .material-card:hover {
-                transform: translateY(-10px) scale(1.02);
-                background: linear-gradient(to bottom right, #121212, #0D0D0D);
-                box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
-                border-color: rgba(99, 102, 241, 0.4);
-            }
-
-            .download-btn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
             }
         }
 
@@ -796,6 +810,7 @@
             gap: clamp(10px, 2vw, 15px);
             justify-content: center;
             line-height: 1.2;
+            font-family: 'Orbitron', 'Inter', sans-serif;
         }
 
         .project-title i {
@@ -807,6 +822,7 @@
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: clamp(20px, 4vw, 30px);
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         .stats-grid {
@@ -837,6 +853,33 @@
             transition: opacity 0.4s;
         }
 
+        /* Blur restriction for Chair Physics Project */
+        .team-grid .team-card:nth-child(n+2),
+        .components-list,
+        .origin-card {
+            position: relative;
+        }
+
+        .team-grid .team-card:nth-child(n+2)::after,
+        .components-list::after,
+        .origin-card::after {
+            content: 'RESTRICTED ACCESS';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2em, 3vw, 1.5em);
+            font-weight: 800;
+            color: #ef4444;
+            z-index: 10;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+            pointer-events: none;
+        }
+
         @media (hover: hover) {
             .stat-card:hover::before {
                 opacity: 1;
@@ -848,11 +891,11 @@
                 box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2);
             }
 
-            .team-card:hover::before {
+            .team-card:not(:nth-child(n+2)):hover::before {
                 opacity: 1;
             }
 
-            .team-card:hover {
+            .team-card:not(:nth-child(n+2)):hover {
                 transform: translateY(-10px);
                 border-color: rgba(99, 102, 241, 0.4);
                 box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
@@ -880,6 +923,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-family: 'Roboto Mono', monospace;
         }
 
         .stat-label {
@@ -888,6 +932,7 @@
             margin-top: clamp(8px, 1.5vw, 10px);
             font-weight: 500;
             word-break: break-word;
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         /* Team Section */
@@ -933,6 +978,7 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
         .team-name i {
@@ -945,6 +991,7 @@
             font-weight: 600;
             margin-bottom: clamp(12px, 2vw, 15px);
             font-size: clamp(0.95em, 2vw, 1.05em);
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         .team-bio {
@@ -993,6 +1040,7 @@
             align-items: center;
             gap: 10px;
             justify-content: center;
+            font-family: 'Playfair Display', serif;
         }
 
         .feedback-title i {
@@ -1080,6 +1128,7 @@
             position: relative;
             overflow: hidden;
             touch-action: manipulation;
+            font-family: 'Poppins', 'Inter', sans-serif;
         }
 
         .feedback-btn::before {
@@ -1106,6 +1155,7 @@
             font-size: clamp(1.1em, 2.5vw, 1.3em);
             font-weight: 700;
             color: var(--text-primary);
+            font-family: 'Roboto Mono', monospace;
         }
 
         /* Origin Story Card */
@@ -1146,6 +1196,7 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
         .origin-title i {
@@ -1197,6 +1248,7 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
         .components-list h3 i {
@@ -1226,15 +1278,6 @@
             color: #10b981;
             font-weight: 700;
             font-size: 1.2em;
-        }
-
-        /* Empty State */
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: clamp(60px, 10vw, 80px) clamp(15px, 3vw, 20px);
-            color: var(--text-secondary);
-            font-size: clamp(1em, 2.5vw, 1.2em);
         }
 
         /* Animated accent dots */
@@ -1279,111 +1322,154 @@
             }
         }
 
-        /* Landscape tablet/mobile adjustments */
-        @media (max-width: 1024px) and (orientation: landscape) {
+        /* Improved Responsive Adjustments */
+        @media (max-width: 1024px) {
+        }
+
+        @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 16px;
             }
 
             header {
-                padding: 30px 20px;
+                padding: 20px 16px;
+                margin-bottom: 16px;
             }
 
-            .project-hero {
-                padding: 30px 20px;
-            }
-        }
-
-        /* Portrait mobile specific */
-        @media (max-width: 768px) and (orientation: portrait) {
             .logo-wrapper {
-                flex-direction: column;
-            }
-
-            .funding-badge {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
             }
 
             .nav-tabs {
                 flex-direction: column;
+                gap: 12px;
             }
 
             .nav-tab {
                 min-width: 100%;
+                padding: 16px 20px;
             }
 
-            .materials-grid {
+            .stats-grid,
+            .team-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .project-title {
                 flex-direction: column;
                 text-align: center;
             }
+        }
 
-            .team-grid,
-            .stats-grid {
-                grid-template-columns: 1fr;
+        /* Portrait mode specific fixes */
+        @media (max-width: 480px) and (orientation: portrait) {
+            .logo-wrapper {
+                flex-direction: column;
+                gap: 12px;
             }
 
-            .filter-wrapper i {
-                left: 12px;
+            .funding-badge {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 20px;
             }
-            
-            select, input[type="text"] {
-                padding-left: 40px;
+
+            .file {
+                width: min(160px, 85vw);
+                height: min(107px, 57vw);
             }
-            
-            select {
-                background-position: right 12px center;
-                padding-right: 35px;
+
+            .work-1 {
+                height: min(104px, 55vw);
+            }
+        }
+
+        /* Landscape mode fixes */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            .container {
+                padding: 16px 24px;
+            }
+
+            header {
+                padding: 24px;
+                margin-bottom: 20px;
+            }
+
+            .project-hero {
+                padding: 24px;
+            }
+
+            .orb {
+                filter: blur(60px);
+            }
+
+            .logo-wrapper {
+                flex-direction: row;
+                margin-bottom: 12px;
+            }
+
+            .funding-badge {
+                margin-top: 16px;
+            }
+        }
+
+        /* Very small landscape devices */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .orb {
+                filter: blur(50px);
+                opacity: 0.15;
+            }
+
+            header {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+
+            .logo-wrapper {
+                margin-bottom: 8px;
+                gap: 10px;
+            }
+
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .tagline {
+                font-size: 0.9em;
+                margin-top: 8px;
+            }
+
+            .funding-badge {
+                margin-top: 12px;
+                padding: 10px 20px;
+                font-size: 0.85em;
+            }
+
+            .nav-tabs {
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+
+            .nav-tab {
+                padding: 12px 16px;
+                font-size: 0.9em;
+            }
+
+            .section-card {
+                padding: 20px;
             }
         }
 
         /* Very small devices */
         @media (max-width: 380px) {
-            .filter-group {
-                grid-template-columns: 1fr;
-            }
-
-            .file {
-                width: min(180px, 90vw);
-                height: min(120px, 60vw);
-            }
-
-            .work-1 {
-                height: min(117px, 58vw);
-            }
-        }
-
-        /* Landscape specific for very small heights */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .orb {
-                filter: blur(60px);
-            }
-
-            header {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-
-            .logo-wrapper {
-                margin-bottom: 10px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .tagline {
-                font-size: 1em;
-            }
-
-            .funding-badge {
-                margin-top: 15px;
-                padding: 10px 20px;
-            }
         }
 
         /* Loading Animation */
@@ -1462,81 +1548,40 @@
         <header>
             <div class="logo-wrapper">
                 <div class="logo-icon">
-                    <i class="fi fi-sr-book-alt"></i>
+                    <i class="fi fi-sr-chair-office"></i>
                 </div>
                 <div>
-                    <h1>Weephy 2.0</h1>
-                    <p class="tagline">Premium Study Materials Hub for Academic Excellence</p>
+                    <h1>Chair Physics</h1>
+                    <p class="tagline">Engineering Innovation Through Speed & Passion</p>
                 </div>
             </div>
             <div class="funding-badge">
                 <i class="fi fi-br-lightbulb"></i>
-                <span>Supporting Students & Funding Innovation in Chair Physics</span>
+                <span>Building the World's Fastest Motorized Rolling Chair</span>
             </div>
         </header>
 
         <nav class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('materials', this)" aria-label="View Study Materials">
-                <i class="fi fi-rr-book-open-cover tab-icon" aria-hidden="true"></i>
-                <span>Study Materials</span>
-            </button>
-            <button class="nav-tab" onclick="switchTab('project', this)" aria-label="View Chair Physics Project">
+            <button class="nav-tab active" onclick="switchTab('project', this)" aria-label="View Chair Physics Project">
                 <i class="fi fi-rr-chair-office tab-icon" aria-hidden="true"></i>
                 <span>Chair Physics Project</span>
             </button>
         </nav>
 
-        <!-- Study Materials Section -->
-        <div id="materials" class="content-section active">
-            <div class="section-card">
-                <h2 class="section-title">Study Materials Library</h2>
-                
-                <div class="filter-group">
-                    <div class="filter-wrapper">
-                        <i class="fi fi-rr-calendar" aria-hidden="true"></i>
-                        <select id="yearSelect" onchange="filterMaterials()" aria-label="Filter by Academic Year">
-                            <option value="">Select Academic Year</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                        </select>
-                    </div>
-                    <div class="filter-wrapper">
-                        <i class="fi fi-rr-document" aria-hidden="true"></i>
-                        <select id="termSelect" onchange="filterMaterials()" aria-label="Filter by Term">
-                            <option value="">Select Term</option>
-                            <option value="1">Term 1</option>
-                            <option value="2">Term 2</option>
-                            <option value="3">Term 3</option>
-                        </select>
-                    </div>
-                    <div class="filter-wrapper">
-                        <i class="fi fi-rr-books" aria-hidden="true"></i>
-                        <select id="subjectSelect" onchange="filterMaterials()" aria-label="Filter by Subject">
-                            <option value="">Select Subject</option>
-                            <option value="physics">Physics</option>
-                            <option value="chemistry">Chemistry</option>
-                            <option value="biology">Biology</option>
-                            <option value="mathematics">Mathematics</option>
-                            <option value="computer-science">Computer Science</option>
-                            <option value="english">English</option>
-                            <option value="history">History</option>
-                        </select>
-                    </div>
-                    <div class="filter-wrapper">
-                        <i class="fi fi-rr-search" aria-hidden="true"></i>
-                        <input type="text" id="searchInput" placeholder="Search materials..." oninput="filterMaterials()" aria-label="Search materials">
-                    </div>
-                </div>
-
-                <div class="materials-grid" id="materialsGrid" role="list">
-                    <!-- Materials populated by JavaScript -->
-                </div>
-            </div>
+        <div class="password-container">
+            <label class="search-label">
+                <input type="password" id="passwordInput" name="text" class="input" required="" placeholder="Enter password to unlock restricted content...">
+                <kbd class="slash-icon">/</kbd>
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                    <g>
+                        <path d="M55.146 51.887 41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z" fill="currentColor" data-original="#000000" class=""></path>
+                    </g>
+                </svg>
+            </label>
         </div>
 
         <!-- Chair Physics Project Section -->
-        <div id="project" class="content-section">
+        <div id="project" class="content-section active">
             <div class="project-hero">
                 <h2 class="project-title">
                     <i class="fi fi-sr-chair-office" aria-hidden="true"></i>
@@ -1636,7 +1681,7 @@
                     </div>
                     
                     <button class="feedback-btn" onclick="addFeedback()" aria-label="Add feedback">
-                        <i class="fi fi-sr-heart" aria-hidden="true"></i>
+                        <i class="fi fi-sr-poo" aria-hidden="true"></i>
                         <span>Drop Feedback</span>
                     </button>
                     <div class="feedback-count" id="feedbackCount" aria-live="polite">Total Feedback: 0</div>
@@ -1646,26 +1691,134 @@
     </div>
 
     <script>
-        // Study Materials Data
-        const materials = [
-            { id: 1, title: "Physics - Motion & Forces", subject: "physics", year: "2026", term: "1", type: "Lecture Notes", teacher: "Dr. Smith" },
-            { id: 2, title: "Physics - Electricity & Magnetism", subject: "physics", year: "2026", term: "2", type: "Study Guide", teacher: "Dr. Smith" },
-            { id: 3, title: "Physics - Thermodynamics & Heat Transfer", subject: "physics", year: "2025", term: "2", type: "Lab Manual", teacher: "Dr. Smith" },
-            { id: 4, title: "Chemistry - Atomic Structure & Bonding", subject: "chemistry", year: "2026", term: "1", type: "Lecture Notes", teacher: "Prof. Johnson" },
-            { id: 5, title: "Chemistry - Organic Chemistry Fundamentals", subject: "chemistry", year: "2025", term: "3", type: "Lab Report", teacher: "Prof. Johnson" },
-            { id: 6, title: "Mathematics - Calculus I", subject: "mathematics", year: "2025", term: "3", type: "Problem Sets", teacher: "Ms. Davis" },
-            { id: 7, title: "Mathematics - Linear Algebra", subject: "mathematics", year: "2026", term: "2", type: "Exam Prep", teacher: "Ms. Davis" },
-            { id: 8, title: "Computer Science - Data Structures & Algorithms", subject: "computer-science", year: "2026", term: "1", type: "Coding Exercises", teacher: "Mr. Lee" },
-            { id: 9, title: "Computer Science - Object-Oriented Programming", subject: "computer-science", year: "2025", term: "2", type: "Project Guide", teacher: "Mr. Lee" },
-            { id: 10, title: "Biology - Cell Biology & Genetics", subject: "biology", year: "2025", term: "2", type: "Study Guide", teacher: "Dr. Brown" },
-            { id: 11, title: "Biology - Ecology & Evolution", subject: "biology", year: "2026", term: "1", type: "Field Notes", teacher: "Dr. Brown" },
-            { id: 12, title: "English - Literary Analysis Techniques", subject: "english", year: "2026", term: "1", type: "Essay Guide", teacher: "Ms. Wilson" },
-            { id: 13, title: "English - Shakespeare Studies", subject: "english", year: "2025", term: "3", type: "Reading List", teacher: "Ms. Wilson" },
-            { id: 14, title: "History - World War II & Its Impact", subject: "history", year: "2025", term: "3", type: "Timeline & Notes", teacher: "Prof. Anderson" },
-            { id: 15, title: "History - Ancient Civilizations", subject: "history", year: "2026", term: "1", type: "Study Guide", teacher: "Prof. Anderson" }
-        ];
-
         let feedbackCount = 0;
+        const correctPassword = "chairphysics2025"; // Change this to your desired password
+        let isUnlocked = false;
+        let wrongPasswordAttempts = []; // Array to store wrong password attempts
+
+        // Password checker
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const enteredPassword = passwordInput.value;
+            
+            if (enteredPassword === correctPassword) {
+                isUnlocked = true;
+                unlockRestrictedContent();
+                
+                // Success notification
+                const notification = document.createElement('div');
+                notification.setAttribute('role', 'status');
+                notification.setAttribute('aria-live', 'polite');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(16, 185, 129, 0.95);
+                    backdrop-filter: blur(20px);
+                    color: white;
+                    padding: clamp(20px, 4vw, 30px) clamp(30px, 6vw, 50px);
+                    border-radius: clamp(16px, 2vw, 20px);
+                    font-size: clamp(1em, 2.5vw, 1.2em);
+                    font-weight: 600;
+                    z-index: 10000;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    animation: notificationSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                    max-width: 90%;
+                    text-align: center;
+                    opacity: 0;
+                `;
+                notification.textContent = '✓ Access Granted! Restricted content unlocked.';
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+                
+                passwordInput.value = '';
+            } else if (enteredPassword.length > 0) {
+                // Save wrong password attempt
+                const timestamp = new Date().toLocaleString();
+                const attemptData = {
+                    password: enteredPassword,
+                    time: timestamp,
+                    attemptNumber: wrongPasswordAttempts.length + 1
+                };
+                wrongPasswordAttempts.push(attemptData);
+                
+                // Log to console with styling
+                console.log('%c🔒 WRONG PASSWORD ATTEMPT #' + attemptData.attemptNumber, 
+                    'color: #ef4444; font-size: 16px; font-weight: bold;');
+                console.log('%cPassword entered: "' + enteredPassword + '"', 
+                    'color: #f59e0b; font-size: 14px;');
+                console.log('%cTime: ' + timestamp, 
+                    'color: #8b5cf6; font-size: 12px;');
+                console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 
+                    'color: #6b7280;');
+                
+                // Display all attempts in console
+                console.log('%c📋 ALL WRONG PASSWORD ATTEMPTS:', 
+                    'color: #10b981; font-size: 18px; font-weight: bold;');
+                console.table(wrongPasswordAttempts);
+                
+                // Store in localStorage for persistence
+                localStorage.setItem('wrongPasswordAttempts', JSON.stringify(wrongPasswordAttempts));
+                
+                // Wrong password notification
+                const notification = document.createElement('div');
+                notification.setAttribute('role', 'status');
+                notification.setAttribute('aria-live', 'polite');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(239, 68, 68, 0.95);
+                    backdrop-filter: blur(20px);
+                    color: white;
+                    padding: clamp(20px, 4vw, 30px) clamp(30px, 6vw, 50px);
+                    border-radius: clamp(16px, 2vw, 20px);
+                    font-size: clamp(1em, 2.5vw, 1.2em);
+                    font-weight: 600;
+                    z-index: 10000;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    animation: notificationSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                    max-width: 90%;
+                    text-align: center;
+                    opacity: 0;
+                `;
+                notification.textContent = '✗ Incorrect Password. Try again.';
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+                
+                passwordInput.value = '';
+            }
+        }
+
+        // Unlock restricted content
+        function unlockRestrictedContent() {
+            // Remove restriction overlays
+            const restrictedElements = document.querySelectorAll('.team-grid .team-card:nth-child(n+2), .components-list, .origin-card');
+            restrictedElements.forEach(element => {
+                const overlay = element.querySelector('::after');
+                element.style.pointerEvents = 'auto';
+                // Create a new style to override the ::after pseudo-element
+                const style = document.createElement('style');
+                style.textContent = `
+                    .team-grid .team-card:nth-child(n+2)::after,
+                    .components-list::after,
+                    .origin-card::after {
+                        display: none !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            });
+        }
 
         // Tab Switching
         function switchTab(tabId, element) {
@@ -1689,110 +1842,6 @@
             }
         }
 
-        // Filter Materials
-        function filterMaterials() {
-            const year = document.getElementById('yearSelect').value;
-            const term = document.getElementById('termSelect').value;
-            const subject = document.getElementById('subjectSelect').value;
-            const search = document.getElementById('searchInput').value.toLowerCase();
-
-            const filtered = materials.filter(material => {
-                const matchesYear = !year || material.year === year;
-                const matchesTerm = !term || material.term === term;
-                const matchesSubject = !subject || material.subject === subject;
-                const matchesSearch = !search || 
-                    material.title.toLowerCase().includes(search) ||
-                    material.teacher.toLowerCase().includes(search) ||
-                    material.type.toLowerCase().includes(search);
-
-                return matchesYear && matchesTerm && matchesSubject && matchesSearch;
-            });
-
-            displayMaterials(filtered);
-        }
-
-        // Display Materials
-        function displayMaterials(materialsToShow) {
-            const grid = document.getElementById('materialsGrid');
-            
-            if (materialsToShow.length === 0) {
-                grid.innerHTML = '<div class="empty-state" role="status">No materials found. Try adjusting your filters!</div>';
-                return;
-            }
-
-            grid.innerHTML = materialsToShow.map(material => `
-                <div class="material-card" role="listitem">
-                    <div class="folder-icon-wrapper" aria-hidden="true">
-                        <section class="relative group flex flex-col items-center justify-center w-full h-full">
-                            <div class="file">
-                                <div class="work-5"></div>
-                                <div class="work-4"></div>
-                                <div class="work-3"></div>
-                                <div class="work-2"></div>
-                                <div class="work-1"></div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="material-title">${material.title}</div>
-                    <div class="material-info">
-                        <i class="fi fi-rr-calendar" aria-hidden="true"></i>
-                        <span>Year: ${material.year}</span>
-                    </div>
-                    <div class="material-info">
-                        <i class="fi fi-rr-document" aria-hidden="true"></i>
-                        <span>Term: ${material.term}</span>
-                    </div>
-                    <div class="material-info">
-                        <i class="fi fi-rr-chalkboard-user" aria-hidden="true"></i>
-                        <span>${material.teacher}</span>
-                    </div>
-                    <div class="material-info">
-                        <i class="fi fi-rr-file-edit" aria-hidden="true"></i>
-                        <span>${material.type}</span>
-                    </div>
-                    <button class="download-btn" onclick="downloadMaterial(${material.id})" aria-label="Download ${material.title}">
-                        <i class="fi fi-rr-download" aria-hidden="true"></i>
-                        <span>Download Material</span>
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        // Download Material
-        function downloadMaterial(id) {
-            const material = materials.find(m => m.id === id);
-            
-            // Create a more professional notification
-            const notification = document.createElement('div');
-            notification.setAttribute('role', 'status');
-            notification.setAttribute('aria-live', 'polite');
-            notification.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(16, 185, 129, 0.95);
-                backdrop-filter: blur(20px);
-                color: white;
-                padding: clamp(20px, 4vw, 30px) clamp(30px, 6vw, 50px);
-                border-radius: clamp(16px, 2vw, 20px);
-                font-size: clamp(1em, 2.5vw, 1.2em);
-                font-weight: 600;
-                z-index: 10000;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                max-width: 90%;
-                text-align: center;
-            `;
-            notification.textContent = `✓ Downloading: ${material.title}`;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.animation = 'fadeOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 2000);
-        }
-
         // Add Feedback
         function addFeedback() {
             feedbackCount++;
@@ -1803,8 +1852,8 @@
             }
             
             const emoji = document.createElement('i');
-            emoji.className = 'emoji-item fi fi-sr-heart';
-            emoji.setAttribute('aria-label', 'Feedback heart');
+            emoji.className = 'emoji-item fi fi-sr-poo';
+            emoji.setAttribute('aria-label', 'Feedback poop');
             display.appendChild(emoji);
             
             document.getElementById('feedbackCount').textContent = `Total Feedback: ${feedbackCount}`;
@@ -1812,12 +1861,32 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            displayMaterials(materials);
-
+            // Load previous wrong password attempts from localStorage
+            const savedAttempts = localStorage.getItem('wrongPasswordAttempts');
+            if (savedAttempts) {
+                wrongPasswordAttempts = JSON.parse(savedAttempts);
+                if (wrongPasswordAttempts.length > 0) {
+                    console.log('%c🔐 PREVIOUSLY SAVED WRONG PASSWORD ATTEMPTS:', 
+                        'color: #ec4899; font-size: 20px; font-weight: bold; background: #1f2937; padding: 10px;');
+                    console.table(wrongPasswordAttempts);
+                    console.log('%cType "clearPasswordAttempts()" to clear all saved attempts', 
+                        'color: #10b981; font-size: 12px; font-style: italic;');
+                }
+            }
+            
             // Add keyboard navigation support
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.setAttribute('role', 'tab');
                 tab.setAttribute('aria-selected', tab.classList.contains('active'));
+            });
+
+            // Password input event listener
+            const passwordInput = document.getElementById('passwordInput');
+            passwordInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    checkPassword();
+                }
             });
 
             // Handle orientation changes
@@ -1829,6 +1898,26 @@
                 }, 250);
             });
         });
+        
+        // Helper function to clear password attempts (accessible from console)
+        function clearPasswordAttempts() {
+            wrongPasswordAttempts = [];
+            localStorage.removeItem('wrongPasswordAttempts');
+            console.log('%c✓ All password attempts cleared!', 
+                'color: #10b981; font-size: 16px; font-weight: bold;');
+        }
+        
+        // Helper function to view all attempts (accessible from console)
+        function viewPasswordAttempts() {
+            if (wrongPasswordAttempts.length === 0) {
+                console.log('%cNo wrong password attempts recorded yet.', 
+                    'color: #6b7280; font-size: 14px;');
+            } else {
+                console.log('%c📋 ALL WRONG PASSWORD ATTEMPTS:', 
+                    'color: #10b981; font-size: 18px; font-weight: bold;');
+                console.table(wrongPasswordAttempts);
+            }
+        }
     </script>
 </body>
 </html>
