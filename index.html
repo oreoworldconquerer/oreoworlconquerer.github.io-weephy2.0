@@ -430,6 +430,7 @@
             color: #10b981;
             font-size: 1.2em;
             pointer-events: none;
+            z-index: 1;
         }
 
         select option {
@@ -445,6 +446,13 @@
 
         input::placeholder {
             color: var(--text-secondary);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310b981' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
         }
 
         /* Materials Grid */
@@ -1317,6 +1325,19 @@
             .team-grid,
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .filter-wrapper i {
+                left: 12px;
+            }
+            
+            select, input[type="text"] {
+                padding-left: 40px;
+            }
+            
+            select {
+                background-position: right 12px center;
+                padding-right: 35px;
             }
         }
 
