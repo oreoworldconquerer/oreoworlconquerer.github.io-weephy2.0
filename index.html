@@ -522,235 +522,6 @@
             font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
-        /* Filter Controls */
-        .filter-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: clamp(15px, 3vw, 20px);
-            margin-bottom: clamp(30px, 5vw, 40px);
-        }
-
-        select, input[type="text"] {
-            background: rgba(99, 102, 241, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 12px;
-            padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 20px);
-            padding-left: clamp(45px, 8vw, 50px);
-            font-size: clamp(0.9em, 2vw, 1em);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            outline: none;
-            width: 100%;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        .filter-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .filter-wrapper i {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #10b981;
-            font-size: 1.2em;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        select option {
-            background: #0F0F0F;
-            color: var(--text-primary);
-        }
-
-        select:focus, input[type="text"]:focus {
-            background: rgba(99, 102, 241, 0.15);
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        }
-
-        input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2310b981' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-            padding-right: 40px;
-        }
-
-        /* Materials Grid */
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
-            gap: clamp(15px, 3vw, 25px);
-            margin-top: clamp(20px, 4vw, 30px);
-        }
-
-        .material-card {
-            background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to));
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: clamp(16px, 3vw, 20px);
-            padding: clamp(20px, 4vw, 30px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Restricted Access Blur */
-        .material-card.restricted {
-            pointer-events: none;
-        }
-
-        .material-card.restricted::after {
-            content: 'RESTRICTED ACCESS';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(1.2em, 3vw, 1.5em);
-            font-weight: 800;
-            color: #ef4444;
-            z-index: 10;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
-        }
-
-        .material-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.05), rgba(16, 185, 129, 0.1));
-            opacity: 0.4;
-            transition: opacity 0.5s;
-            z-index: 0;
-        }
-
-        .material-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #6366f1, #10b981);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 2;
-        }
-
-        .material-card:not(.restricted):hover::before,
-        .material-card:not(.restricted):focus-within::before {
-            opacity: 0.7;
-        }
-
-        .material-card:not(.restricted):hover::after,
-        .material-card:not(.restricted):focus-within::after {
-            transform: scaleX(1);
-        }
-
-        .material-card:not(.restricted):active {
-            transform: scale(0.98);
-        }
-
-        .material-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .material-title {
-            font-size: clamp(1.1em, 2.5vw, 1.3em);
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: clamp(12px, 2vw, 15px);
-            line-height: 1.4;
-            word-break: break-word;
-        }
-
-        .material-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            margin: 10px 0;
-            font-size: clamp(0.85em, 1.8vw, 0.95em);
-            flex-wrap: wrap;
-        }
-
-        .material-info i {
-            color: #10b981;
-            font-size: 1.1em;
-            flex-shrink: 0;
-        }
-
-        .download-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #6366f1, #10b981);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: clamp(12px, 2vw, 14px) clamp(20px, 4vw, 24px);
-            font-size: clamp(0.9em, 2vw, 1em);
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: clamp(15px, 3vw, 20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            touch-action: manipulation;
-        }
-
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #10b981, #6366f1);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .download-btn:hover::before,
-        .download-btn:focus::before {
-            opacity: 1;
-        }
-
-        .download-btn:active {
-            transform: scale(0.98);
-        }
-
-        .download-btn > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (hover: hover) {
-            .nav-tab:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
-                border-color: rgba(99, 102, 241, 0.4);
-            }
-        }
-
         /* Chair Physics Project Section */
         .project-hero {
             background: linear-gradient(to bottom right, rgba(15, 15, 15, 0.95), rgba(11, 11, 11, 0.95));
@@ -1323,9 +1094,6 @@
         }
 
         /* Improved Responsive Adjustments */
-        @media (max-width: 1024px) {
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 16px;
@@ -1374,127 +1142,6 @@
                 gap: 8px;
                 padding: 12px 20px;
             }
-
-            .file {
-                width: min(160px, 85vw);
-                height: min(107px, 57vw);
-            }
-
-            .work-1 {
-                height: min(104px, 55vw);
-            }
-        }
-
-        /* Landscape mode fixes */
-        @media (max-width: 1024px) and (orientation: landscape) {
-            .container {
-                padding: 16px 24px;
-            }
-
-            header {
-                padding: 24px;
-                margin-bottom: 20px;
-            }
-
-            .project-hero {
-                padding: 24px;
-            }
-
-            .orb {
-                filter: blur(60px);
-            }
-
-            .logo-wrapper {
-                flex-direction: row;
-                margin-bottom: 12px;
-            }
-
-            .funding-badge {
-                margin-top: 16px;
-            }
-        }
-
-        /* Very small landscape devices */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .orb {
-                filter: blur(50px);
-                opacity: 0.15;
-            }
-
-            header {
-                padding: 16px;
-                margin-bottom: 16px;
-            }
-
-            .logo-wrapper {
-                margin-bottom: 8px;
-                gap: 10px;
-            }
-
-            .logo-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 28px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .tagline {
-                font-size: 0.9em;
-                margin-top: 8px;
-            }
-
-            .funding-badge {
-                margin-top: 12px;
-                padding: 10px 20px;
-                font-size: 0.85em;
-            }
-
-            .nav-tabs {
-                flex-direction: row;
-                gap: 10px;
-                margin-bottom: 16px;
-            }
-
-            .nav-tab {
-                padding: 12px 16px;
-                font-size: 0.9em;
-            }
-
-            .section-card {
-                padding: 20px;
-            }
-        }
-
-        /* Very small devices */
-        @media (max-width: 380px) {
-        }
-
-        /* Loading Animation */
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .loading {
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            background-size: 1000px 100%;
-            animation: shimmer 2s infinite;
-        }
-
-        /* Accessibility improvements */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
         }
 
         /* Focus styles for accessibility */
@@ -1509,26 +1156,6 @@
         select:focus-visible {
             outline: 2px solid #10b981;
             outline-offset: 2px;
-        }
-
-        /* Print styles */
-        @media print {
-            .background-orbs,
-            .animated-dots,
-            .nav-tabs {
-                display: none;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-
-            .section-card,
-            .material-card,
-            .team-card {
-                break-inside: avoid;
-            }
         }
     </style>
 </head>
@@ -1696,6 +1323,46 @@
         let isUnlocked = false;
         let wrongPasswordAttempts = []; // Array to store wrong password attempts
 
+        // SERVER URL - Change this if your server is running on a different port or domain
+        const SERVER_URL = 'http://localhost:3000';
+
+        // Function to log wrong password to server
+        async function logWrongPasswordToServer(password) {
+            const timestamp = new Date().toLocaleString();
+            const attemptData = {
+                password: password,
+                time: timestamp,
+                attemptNumber: wrongPasswordAttempts.length + 1,
+                userAgent: navigator.userAgent,
+                ipAddress: 'Client-side' // Will be updated by server
+            };
+
+            try {
+                const response = await fetch(`${SERVER_URL}/log-wrong-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(attemptData)
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    console.log('%c✓ Wrong password logged to server successfully!', 
+                        'color: #10b981; font-size: 14px; font-weight: bold;');
+                    console.log('%cTotal attempts in database: ' + result.totalAttempts, 
+                        'color: #6366f1; font-size: 12px;');
+                } else {
+                    console.error('Failed to log password to server:', result.error);
+                }
+            } catch (error) {
+                console.error('%c⚠ Could not connect to server. Make sure the server is running!', 
+                    'color: #f59e0b; font-size: 14px; font-weight: bold;');
+                console.error('Error details:', error);
+            }
+        }
+
         // Password checker
         function checkPassword() {
             const passwordInput = document.getElementById('passwordInput');
@@ -1738,7 +1405,7 @@
                 
                 passwordInput.value = '';
             } else if (enteredPassword.length > 0) {
-                // Save wrong password attempt
+                // Save wrong password attempt locally
                 const timestamp = new Date().toLocaleString();
                 const attemptData = {
                     password: enteredPassword,
@@ -1746,6 +1413,9 @@
                     attemptNumber: wrongPasswordAttempts.length + 1
                 };
                 wrongPasswordAttempts.push(attemptData);
+                
+                // Log to server (saves to wrongpassword.json)
+                logWrongPasswordToServer(enteredPassword);
                 
                 // Log to console with styling
                 console.log('%c🔒 WRONG PASSWORD ATTEMPT #' + attemptData.attemptNumber, 
@@ -1758,7 +1428,7 @@
                     'color: #6b7280;');
                 
                 // Display all attempts in console
-                console.log('%c📋 ALL WRONG PASSWORD ATTEMPTS:', 
+                console.log('%c📋 LOCAL WRONG PASSWORD ATTEMPTS:', 
                     'color: #10b981; font-size: 18px; font-weight: bold;');
                 console.table(wrongPasswordAttempts);
                 
@@ -1859,6 +1529,46 @@
             document.getElementById('feedbackCount').textContent = `Total Feedback: ${feedbackCount}`;
         }
 
+        // Helper function to view all server attempts (accessible from console)
+        async function viewServerPasswordAttempts() {
+            try {
+                const response = await fetch(`${SERVER_URL}/get-wrong-passwords`);
+                const result = await response.json();
+                
+                if (result.success && result.attempts.length > 0) {
+                    console.log('%c📋 ALL SERVER PASSWORD ATTEMPTS (from wrongpassword.json):', 
+                        'color: #10b981; font-size: 18px; font-weight: bold; background: #1f2937; padding: 10px;');
+                    console.table(result.attempts);
+                } else {
+                    console.log('%cNo password attempts found on server.', 
+                        'color: #6b7280; font-size: 14px;');
+                }
+            } catch (error) {
+                console.error('%c⚠ Could not connect to server!', 
+                    'color: #f59e0b; font-size: 14px; font-weight: bold;');
+            }
+        }
+
+        // Helper function to clear local password attempts (accessible from console)
+        function clearPasswordAttempts() {
+            wrongPasswordAttempts = [];
+            localStorage.removeItem('wrongPasswordAttempts');
+            console.log('%c✓ All local password attempts cleared!', 
+                'color: #10b981; font-size: 16px; font-weight: bold;');
+        }
+        
+        // Helper function to view local attempts (accessible from console)
+        function viewPasswordAttempts() {
+            if (wrongPasswordAttempts.length === 0) {
+                console.log('%cNo local wrong password attempts recorded yet.', 
+                    'color: #6b7280; font-size: 14px;');
+            } else {
+                console.log('%c📋 ALL LOCAL WRONG PASSWORD ATTEMPTS:', 
+                    'color: #10b981; font-size: 18px; font-weight: bold;');
+                console.table(wrongPasswordAttempts);
+            }
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Load previous wrong password attempts from localStorage
@@ -1866,13 +1576,24 @@
             if (savedAttempts) {
                 wrongPasswordAttempts = JSON.parse(savedAttempts);
                 if (wrongPasswordAttempts.length > 0) {
-                    console.log('%c🔐 PREVIOUSLY SAVED WRONG PASSWORD ATTEMPTS:', 
+                    console.log('%c🔐 PREVIOUSLY SAVED LOCAL PASSWORD ATTEMPTS:', 
                         'color: #ec4899; font-size: 20px; font-weight: bold; background: #1f2937; padding: 10px;');
                     console.table(wrongPasswordAttempts);
-                    console.log('%cType "clearPasswordAttempts()" to clear all saved attempts', 
-                        'color: #10b981; font-size: 12px; font-style: italic;');
                 }
             }
+            
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 
+                'color: #6b7280;');
+            console.log('%c📝 AVAILABLE CONSOLE COMMANDS:', 
+                'color: #6366f1; font-size: 16px; font-weight: bold;');
+            console.log('%cviewPasswordAttempts() - View local attempts', 
+                'color: #10b981; font-size: 12px;');
+            console.log('%cviewServerPasswordAttempts() - View server attempts (wrongpassword.json)', 
+                'color: #10b981; font-size: 12px;');
+            console.log('%cclearPasswordAttempts() - Clear local attempts', 
+                'color: #10b981; font-size: 12px;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 
+                'color: #6b7280;');
             
             // Add keyboard navigation support
             document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -1898,48 +1619,6 @@
                 }, 250);
             });
         });
-        
-        // Helper function to clear password attempts (accessible from console)
-        function clearPasswordAttempts() {
-            wrongPasswordAttempts = [];
-            localStorage.removeItem('wrongPasswordAttempts');
-            console.log('%c✓ All password attempts cleared!', 
-                'color: #10b981; font-size: 16px; font-weight: bold;');
-        }
-        // Add this function after the clearPasswordAttempts function
-function downloadPasswordAttemptsJSON() {
-    if (wrongPasswordAttempts.length === 0) {
-        console.log('%cNo wrong password attempts to download.', 
-            'color: #6b7280; font-size: 14px;');
-        return;
-    }
-    
-    const dataStr = JSON.stringify(wrongPasswordAttempts, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'wrong_password_attempts_' + new Date().toISOString().slice(0,10) + '.json';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-    
-    console.log('%c✓ Password attempts downloaded as JSON file!', 
-        'color: #10b981; font-size: 16px; font-weight: bold;');
-}
-        
-        // Helper function to view all attempts (accessible from console)
-        function viewPasswordAttempts() {
-            if (wrongPasswordAttempts.length === 0) {
-                console.log('%cNo wrong password attempts recorded yet.', 
-                    'color: #6b7280; font-size: 14px;');
-            } else {
-                console.log('%c📋 ALL WRONG PASSWORD ATTEMPTS:', 
-                    'color: #10b981; font-size: 18px; font-weight: bold;');
-                console.table(wrongPasswordAttempts);
-            }
-        }
     </script>
 </body>
 </html>
