@@ -1906,6 +1906,28 @@
             console.log('%c✓ All password attempts cleared!', 
                 'color: #10b981; font-size: 16px; font-weight: bold;');
         }
+        // Add this function after the clearPasswordAttempts function
+function downloadPasswordAttemptsJSON() {
+    if (wrongPasswordAttempts.length === 0) {
+        console.log('%cNo wrong password attempts to download.', 
+            'color: #6b7280; font-size: 14px;');
+        return;
+    }
+    
+    const dataStr = JSON.stringify(wrongPasswordAttempts, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'wrong_password_attempts_' + new Date().toISOString().slice(0,10) + '.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    console.log('%c✓ Password attempts downloaded as JSON file!', 
+        'color: #10b981; font-size: 16px; font-weight: bold;');
+}
         
         // Helper function to view all attempts (accessible from console)
         function viewPasswordAttempts() {
