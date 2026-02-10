@@ -2,31 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#6366f1">
-    <title>WeePhy 2.0 - Revolutionary Engineering Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00ebff">
+    <title>WeePhy 2.0 - Revolutionary Chair Engineering Project</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Flaticons -->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+        /* ==================== CSS VARIABLES ==================== */
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #10b981;
-            --success: #10b981;
-            --danger: #ef4444;
+            /* Primary Colors */
+            --primary-cyan: #00ebff;
+            --primary-blue: #0074c2;
+            --accent-green: #00ff88;
+            --accent-pink: #ff2a6d;
+            --accent-yellow: #ffae00;
+            --accent-purple: #a742ff;
+            
+            /* Background Colors */
+            --bg-dark: #0a0e14;
+            --bg-darker: #010014;
+            --bg-card: rgba(13, 2, 33, 0.85);
+            --bg-card-hover: rgba(0, 23, 43, 0.75);
+            --bg-feature: rgba(0, 235, 255, 0.05);
+            
+            /* Text Colors */
             --text-primary: #ffffff;
-            --text-secondary: #9ca3af;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --card-bg-from: #0F0F0F;
-            --card-bg-to: #0B0B0B;
+            --text-secondary: #89b1c4;
+            --text-muted: rgba(255, 255, 255, 0.6);
+            
+            /* Border Colors */
+            --border-primary: #08436a;
+            --border-accent: #0a5688;
+            --border-glow: rgba(0, 235, 255, 0.3);
+            
+            /* Shadows */
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 15px rgba(0, 235, 255, 0.6);
+            --shadow-glow-green: 0 0 15px rgba(0, 255, 136, 0.6);
+            --shadow-glow-pink: 0 0 15px rgba(255, 42, 109, 0.6);
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* Typography */
+            --font-primary: 'Jura', sans-serif;
+            --font-display: 'Orbitron', sans-serif;
+            --font-mono: 'Share Tech Mono', monospace;
+            --font-secondary: 'Rajdhani', sans-serif;
         }
 
+        /* ==================== RESET & BASE STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -36,282 +75,452 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #050505;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            min-height: 100vh;
+            font-family: var(--font-primary);
+            background: var(--bg-darker);
             color: var(--text-primary);
+            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Animated Background Orbs */
-        .background-orbs {
+        /* ==================== CUSTOM CURSOR ==================== */
+        * {
+            cursor: none;
+        }
+
+        ::selection {
+            background: var(--primary-cyan);
+            color: var(--bg-darker);
+        }
+
+        .cursor {
             position: fixed;
+            pointer-events: none;
+            z-index: 10001;
+        }
+
+        .cursor.small {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-green);
+            border-radius: 10px;
+            filter: drop-shadow(0 0 5px var(--accent-green)) drop-shadow(0 0 20px var(--accent-green));
+            transform: translate(-50%, -50%);
+            transition: height 0.2s, width 0.2s;
+        }
+
+        .cursor.big {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--primary-cyan);
+            border-radius: 100px;
+            filter: drop-shadow(0 0 5px var(--primary-cyan)) drop-shadow(0 0 20px var(--primary-cyan));
+            transform: translate(-50%, -50%);
+            transition: height 0.5s, width 0.5s, filter 0.5s;
+        }
+
+        .cursor.hover__big {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 0 5px var(--primary-cyan)) 
+                    drop-shadow(0 0 20px var(--primary-cyan)) 
+                    drop-shadow(0 0 40px var(--primary-cyan));
+            transition: height 0.5s, width 0.5s, filter 0.5s;
+        }
+
+        .cursor.hover__small {
+            width: 8px;
+            height: 8px;
+            transition: height 0.2s, width 0.2s;
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             z-index: 0;
             pointer-events: none;
         }
 
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            animation: float 25s infinite ease-in-out;
-            will-change: transform;
+        .stars-bg {
+            background: url('https://robertsspaceindustries.com/rsi/static/images/common/bg-stars-2560.jpg') repeat;
+            opacity: 0.4;
         }
 
-        .orb:nth-child(1) {
-            width: min(500px, 80vw);
-            height: min(500px, 80vw);
-            background: radial-gradient(circle, #6366f1, transparent);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
+        .grid-overlay {
+            background: 
+                url('https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png'),
+                radial-gradient(circle at 20% 30%, rgba(0, 235, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 136, 0.06) 0%, transparent 40%);
+            animation: gridPulse 8s ease-in-out infinite;
         }
 
-        .orb:nth-child(2) {
-            width: min(450px, 75vw);
-            height: min(450px, 75vw);
-            background: radial-gradient(circle, #10b981, transparent);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: 5s;
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
         }
 
-        .orb:nth-child(3) {
-            width: min(400px, 70vw);
-            height: min(400px, 70vw);
-            background: radial-gradient(circle, #8b5cf6, transparent);
-            top: 50%;
-            left: 50%;
-            animation-delay: 10s;
+        .scan-lines {
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 235, 255, 0.03) 2px,
+                rgba(0, 235, 255, 0.03) 4px
+            );
+            animation: scanEffect 10s linear infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(min(80px, 10vw), min(-80px, -10vw)) scale(1.05); }
-            66% { transform: translate(min(-80px, -10vw), min(80px, 10vw)) scale(0.95); }
+        @keyframes scanEffect {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
         }
 
-        .container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            padding: clamp(20px, 5vw, 40px);
+        /* ==================== CONTAINER & LAYOUT ==================== */
+        .main-container {
             position: relative;
             z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(20px, 4vw, 40px);
         }
 
-        /* Enhanced Header */
-        header {
-            background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to));
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: clamp(16px, 3vw, 24px);
-            padding: clamp(25px, 5vw, 50px);
-            margin-bottom: clamp(20px, 4vw, 40px);
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        .section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* ==================== HEADER STYLES ==================== */
+        .site-header {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: clamp(30px, 5vw, 50px);
+            margin-bottom: var(--spacing-2xl);
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-md);
         }
 
-        header::before {
+        .site-header::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.05), rgba(16, 185, 129, 0.1));
-            opacity: 0.6;
-            z-index: 0;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0, 235, 255, 0.1),
+                transparent
+            );
+            animation: shimmer 6s infinite;
         }
 
-        header > * {
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .header-content {
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-wrapper {
+        .logo-section {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: clamp(10px, 2vw, 15px);
-            margin-bottom: clamp(15px, 3vw, 20px);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
         }
 
         .logo-icon {
-            width: clamp(50px, 10vw, 70px);
-            height: clamp(50px, 10vw, 70px);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.2));
+            width: clamp(70px, 14vw, 90px);
+            height: clamp(70px, 14vw, 90px);
+            background: linear-gradient(135deg, rgba(0, 235, 255, 0.2), rgba(0, 255, 136, 0.2));
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: clamp(12px, 2.5vw, 20px);
+            border: 2px solid var(--primary-cyan);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(28px, 5vw, 40px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            animation: pulse 3s ease-in-out infinite;
+            font-size: clamp(36px, 7vw, 48px);
+            box-shadow: var(--shadow-glow);
             position: relative;
-            color: #10b981;
-            flex-shrink: 0;
+            color: var(--accent-green);
         }
 
         .logo-icon::before {
             content: '';
             position: absolute;
-            inset: 0;
-            border-radius: clamp(12px, 2.5vw, 20px);
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+            inset: -2px;
+            border-radius: 16px;
+            border: 2px solid var(--primary-cyan);
+            opacity: 0;
+            animation: logoPing 3s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
 
-        @keyframes ping {
-            75%, 100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
+        @keyframes logoPing {
+            0% { transform: scale(1); opacity: 1; }
+            75%, 100% { transform: scale(1.5); opacity: 0; }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        h1 {
-            font-size: clamp(2em, 6vw, 4em);
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #10b981);
+        .site-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 0;
             letter-spacing: -0.02em;
-            line-height: 1.2;
-            word-break: break-word;
-            font-family: 'Orbitron', 'Inter', sans-serif;
+            line-height: 1.1;
+            margin: 0;
+            text-transform: uppercase;
         }
 
         .tagline {
-            font-size: clamp(1em, 2.5vw, 1.4em);
+            font-family: var(--font-mono);
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             color: var(--text-secondary);
-            font-weight: 400;
-            margin-top: clamp(10px, 2vw, 15px);
-            line-height: 1.5;
-            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            margin-top: var(--spacing-sm);
+            letter-spacing: 0.5px;
         }
 
-        .funding-badge {
+        .tagline-emphasis {
+            color: var(--primary-cyan);
+            font-weight: 600;
+        }
+
+        .status-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .status-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(16, 185, 129, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: clamp(12px, 2vw, 15px) clamp(20px, 4vw, 30px);
+            gap: var(--spacing-sm);
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid var(--accent-green);
+            padding: var(--spacing-sm) var(--spacing-lg);
             border-radius: 50px;
-            margin-top: clamp(20px, 4vw, 30px);
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
             font-weight: 500;
-            font-size: clamp(0.9em, 2vw, 1em);
-            color: var(--text-secondary);
             transition: all 0.3s ease;
-            text-align: center;
-            max-width: 90%;
-            font-family: 'Space Grotesk', 'Inter', sans-serif;
         }
 
-        .funding-badge:hover {
-            background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.5);
+        .status-badge:hover {
+            background: rgba(0, 255, 136, 0.25);
+            box-shadow: var(--shadow-glow-green);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
         }
 
-        .funding-badge i {
-            color: #10b981;
-            font-size: 1.2em;
-            flex-shrink: 0;
+        .status-badge i {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        /* Interactive Founder Cards */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        /* ==================== ACCESS SECTION ==================== */
+        .access-container {
+            background: linear-gradient(135deg, rgba(255, 42, 109, 0.08), rgba(0, 116, 194, 0.08));
+            border: 2px solid var(--accent-pink);
+            border-radius: 12px;
+            padding: clamp(30px, 5vw, 50px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .access-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 42, 109, 0.05) 20px,
+                rgba(255, 42, 109, 0.05) 40px
+            );
+            animation: accessPattern 20s linear infinite;
+        }
+
+        @keyframes accessPattern {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(40px); }
+        }
+
+        .access-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .access-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--accent-pink);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .access-title i {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .access-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .password-wrapper {
+            max-width: 500px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .password-input {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--border-primary);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .password-input:focus {
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 235, 255, 0.2);
+        }
+
+        .password-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .unlock-button {
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            color: var(--bg-darker);
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: 8px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .unlock-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .unlock-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* ==================== SECTION TITLES ==================== */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: var(--spacing-md);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+            box-shadow: 0 0 10px var(--primary-cyan);
+        }
+
+        /* ==================== TEAM CARDS ==================== */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-            gap: clamp(20px, 4vw, 30px);
-            margin: clamp(30px, 5vw, 50px) 0;
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+            gap: var(--spacing-lg);
         }
 
         .team-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
-            background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to));
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 2px solid rgba(99, 102, 241, 0.2);
-            border-radius: clamp(16px, 3vw, 24px);
-            padding: clamp(30px, 5vw, 50px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-sm);
         }
 
         .team-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(0, 235, 255, 0.05), rgba(0, 255, 136, 0.05));
             opacity: 0;
-            transition: opacity 0.5s;
-            z-index: 0;
-        }
-
-        .team-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-        }
-
-        .team-card:hover::before,
-        .team-card:hover::after {
-            opacity: 1;
+            transition: opacity 0.4s;
         }
 
         .team-card:hover {
-            transform: translateY(-10px) rotate(2deg) scale(1.02);
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+            transform: translateY(-10px);
+            border-color: var(--primary-cyan);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
         }
 
         .team-card > * {
@@ -320,218 +529,448 @@
         }
 
         .team-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #6366f1, #10b981);
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5em;
+            font-family: var(--font-display);
+            font-size: 2.8rem;
             font-weight: 900;
-            color: white;
-            margin: 0 auto clamp(15px, 3vw, 25px);
-            font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            color: var(--bg-darker);
+            margin: 0 auto var(--spacing-md);
+            box-shadow: var(--shadow-glow);
             transition: all 0.3s ease;
         }
 
         .team-card:hover .team-avatar {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .team-name {
-            font-size: clamp(1.3em, 3vw, 1.8em);
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: clamp(8px, 1.5vw, 12px);
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 1.7rem);
+            font-weight: 700;
+            color: var(--primary-cyan);
+            margin-bottom: var(--spacing-xs);
         }
 
         .team-role {
-            color: #10b981;
+            font-family: var(--font-mono);
+            color: var(--accent-green);
             font-weight: 600;
-            margin-bottom: clamp(12px, 2vw, 20px);
-            font-size: clamp(0.95em, 2vw, 1.1em);
-            text-align: center;
-            font-family: 'Fira Code', monospace;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .team-bio {
             color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: clamp(0.9em, 2vw, 1em);
-            text-align: center;
+            line-height: 1.8;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
-        /* Password Access Section */
-        .access-section {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
-            border: 2px solid rgba(239, 68, 68, 0.3);
-            border-radius: clamp(16px, 3vw, 24px);
-            padding: clamp(30px, 5vw, 50px);
-            margin: clamp(30px, 5vw, 50px) 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .access-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(239, 68, 68, 0.1), transparent);
-            animation: accessPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes accessPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
-        }
-
-        .access-title {
-            font-size: clamp(1.5em, 4vw, 2.5em);
-            font-weight: 800;
-            background: linear-gradient(135deg, #ef4444, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: clamp(15px, 3vw, 25px);
-            font-family: 'Orbitron', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        .access-desc {
-            color: var(--text-secondary);
-            margin-bottom: clamp(25px, 4vw, 35px);
-            font-size: clamp(1em, 2vw, 1.2em);
-            position: relative;
-            z-index: 1;
-        }
-
-        .password-input-wrapper {
-            max-width: 500px;
-            margin: 0 auto clamp(20px, 3vw, 30px);
-            position: relative;
-            z-index: 1;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 30px);
-            background: rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            border-radius: 12px;
-            color: white;
-            font-size: clamp(1em, 2vw, 1.1em);
-            font-family: 'Fira Code', monospace;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .password-input:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        }
-
-        .password-input::placeholder {
-            color: rgba(156, 163, 175, 0.6);
-        }
-
-        .unlock-btn {
-            background: linear-gradient(135deg, #6366f1, #10b981);
-            color: white;
-            border: none;
-            padding: clamp(12px, 3vw, 18px) clamp(30px, 6vw, 50px);
-            border-radius: 12px;
-            font-size: clamp(1em, 2vw, 1.2em);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .unlock-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #10b981, #6366f1);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .unlock-btn:hover::before {
-            opacity: 1;
-        }
-
-        .unlock-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
-        }
-
-        .unlock-btn > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Restricted Content Overlay */
+        /* ==================== RESTRICTED OVERLAY ==================== */
         .restricted-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(1.2em, 3vw, 1.8em);
+            gap: var(--spacing-sm);
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 800;
-            color: #ef4444;
+            color: var(--accent-pink);
             z-index: 10;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.5s, visibility 0.5s;
-            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.2em;
+            text-shadow: 0 0 20px rgba(255, 42, 109, 0.8);
+            transition: all 0.5s ease;
+            border-radius: 12px;
         }
 
-        .restricted-overlay.hidden {
+        .restricted-overlay i {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .restricted-overlay.unlocked {
             opacity: 0;
             visibility: hidden;
         }
 
-        /* Notification */
+        /* ==================== FEATURE BOXES ==================== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .feature-box {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-cyan);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+        }
+
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-glow);
+            color: var(--bg-darker);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-cyan);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* ==================== SPECS GRID ==================== */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .spec-card {
+            background: var(--bg-feature);
+            border: 2px solid var(--border-primary);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-green), var(--primary-cyan));
+            transition: width 0.3s ease;
+        }
+
+        .spec-card:hover {
+            background: rgba(0, 235, 255, 0.08);
+            border-color: var(--primary-cyan);
+            transform: translateX(5px);
+        }
+
+        .spec-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .spec-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .spec-icon {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .spec-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            font-weight: 700;
+            color: var(--primary-cyan);
+        }
+
+        .spec-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            padding-left: 38px;
+        }
+
+        /* ==================== CONTENT SECTIONS ==================== */
+        .content-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary-cyan), 
+                transparent
+            );
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .content-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-glow);
+            color: var(--bg-darker);
+            flex-shrink: 0;
+        }
+
+        .content-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: var(--primary-cyan);
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .story-text {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .story-text p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .story-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-highlight {
+            color: var(--primary-cyan);
+            font-weight: 600;
+        }
+
+        /* ==================== PROJECT INFO CARDS ==================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(0, 23, 43, 0.5));
+            border: 2px solid var(--border-primary);
+            border-radius: 10px;
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--primary-cyan));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-5px);
+        }
+
+        .info-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .info-value {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .info-label {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .timeline {
+            position: relative;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-cyan), var(--accent-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-green);
+            border: 3px solid var(--bg-card);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--border-primary);
+        }
+
+        .timeline-content {
+            background: var(--bg-feature);
+            border: 2px solid var(--border-primary);
+            border-radius: 10px;
+            padding: var(--spacing-md);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            color: var(--primary-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== NOTIFICATION ==================== */
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.95), rgba(99, 102, 241, 0.95));
-            backdrop-filter: blur(20px);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--accent-green));
+            color: var(--bg-darker);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: 10px;
             font-weight: 600;
+            font-family: var(--font-display);
             z-index: 10000;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            max-width: 90%;
-            font-size: clamp(0.9em, 2vw, 1.1em);
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: calc(100% - 40px);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
         }
 
         .notification.error {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(239, 68, 68, 0.8));
+            background: linear-gradient(135deg, var(--accent-pink), #d01f5c);
+            color: var(--text-primary);
         }
 
-        @keyframes slideInRight {
+        @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateX(100px);
@@ -553,212 +992,581 @@
             }
         }
 
-        /* Responsive */
+        /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
+            .site-header {
+                padding: var(--spacing-lg);
+            }
+
+            .logo-section {
+                flex-direction: column;
+            }
+
             .team-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .notification {
                 right: 10px;
                 left: 10px;
                 top: 10px;
             }
+
+            .content-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-marker {
+                left: 5px;
+            }
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-lg {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .mb-xl {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="background-orbs">
-        <div class="orb"></div>
-        <div class="orb"></div>
-        <div class="orb"></div>
-    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor small"></div>
+    <div class="cursor big"></div>
 
-    <div class="container">
-        <header>
-            <div class="logo-wrapper">
-                <div class="logo-icon">
-                    <i class="fi fi-sr-chair-office"></i>
+    <!-- Background Layers -->
+    <div class="background-layer stars-bg"></div>
+    <div class="background-layer grid-overlay"></div>
+    <div class="background-layer scan-lines"></div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        
+        <!-- Header Section -->
+        <header class="site-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fi fi-sr-chair-office"></i>
+                    </div>
+                    <div>
+                        <h1 class="site-title">WeePhy 2.0</h1>
+                        <p class="tagline">
+                            <span class="tagline-emphasis">Chair Physics</span> • 
+                            Engineering Innovation Through Speed & Passion
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <h1>WeePhy 2.0</h1>
-                    <p class="tagline">Chair Physics<br>Engineering Innovation Through Speed & Passion</p>
+                <div class="status-badges">
+                    <div class="status-badge">
+                        <i class="fi fi-br-bulb"></i>
+                        <span>Active Development</span>
+                    </div>
+                    <div class="status-badge">
+                        <i class="fi fi-rr-rocket-lunch"></i>
+                        <span>Target: 50 KPH</span>
+                    </div>
+                    <div class="status-badge">
+                        <i class="fi fi-rr-users"></i>
+                        <span>3 Founders</span>
+                    </div>
                 </div>
-            </div>
-            <div class="funding-badge">
-                <i class="fi fi-br-lightbulb"></i>
-                <span>Building the World's Fastest Motorized Rolling Chair</span>
             </div>
         </header>
 
-        <!-- Access Section -->
-        <div class="access-section">
-            <h2 class="access-title">🔒 RESTRICTED ACCESS</h2>
-            <p class="access-desc">Enter password to unlock exclusive founder information and technical specifications</p>
-            <div class="password-input-wrapper">
-                <input 
-                    type="password" 
-                    id="passwordInput" 
-                    class="password-input" 
-                    placeholder="Enter access code..."
-                    autocomplete="off"
-                >
+        <!-- Project Overview -->
+        <section class="section">
+            <h2 class="section-title">Project Overview</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-value">50</div>
+                    <div class="info-label">Target Speed (KPH)</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-value">5</div>
+                    <div class="info-label">Brushless Motors</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-value">60V</div>
+                    <div class="info-label">Power System</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-value">2025</div>
+                    <div class="info-label">Founded</div>
+                </div>
             </div>
-            <button class="unlock-btn" onclick="checkPassword()">
-                <span>🔓 UNLOCK CONTENT</span>
-            </button>
-        </div>
+
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fi fi-rr-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">High Performance</h3>
+                    <p class="feature-description">
+                        Custom-engineered motorized chair designed to achieve unprecedented speeds while maintaining stability and control.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fi fi-rr-microchip"></i>
+                    </div>
+                    <h3 class="feature-title">Advanced Electronics</h3>
+                    <p class="feature-description">
+                        Arduino Mega 2560 or Raspberry Pi control system with Power Distribution Board for optimal energy management.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fi fi-rr-cube"></i>
+                    </div>
+                    <h3 class="feature-title">3D Modeling</h3>
+                    <p class="feature-description">
+                        Precision-engineered components designed in 3D, optimized for performance, weight distribution, and structural integrity.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fi fi-rr-shield-check"></i>
+                    </div>
+                    <h3 class="feature-title">Safety First</h3>
+                    <p class="feature-description">
+                        Reinforced structural design with advanced safety features, ensuring rider protection at all speeds.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Control Section -->
+        <section class="section">
+            <div class="access-container">
+                <div class="access-content">
+                    <h2 class="access-title">
+                        <i class="fi fi-sr-lock"></i>
+                        <span>Restricted Access</span>
+                    </h2>
+                    <p class="access-description">
+                        Enter authorization code to unlock exclusive founder profiles, detailed technical specifications, and project timeline
+                    </p>
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="passwordInput" 
+                            class="password-input" 
+                            placeholder="Enter access code..."
+                            autocomplete="off"
+                        >
+                    </div>
+                    <button class="unlock-button" onclick="checkPassword()">
+                        <i class="fi fi-rr-unlock"></i>
+                        <span>Unlock Content</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <!-- Team Section -->
-        <div style="position: relative;">
-            <h2 style="font-size: clamp(2em, 5vw, 3em); font-weight: 800; background: linear-gradient(135deg, #6366f1, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; margin-bottom: clamp(30px, 5vw, 50px); font-family: 'Orbitron', sans-serif;">
-                Meet the Founders
-            </h2>
+        <section class="section">
+            <h2 class="section-title">Meet the Founders</h2>
             
             <div class="team-grid">
                 <!-- Tigran -->
                 <div class="team-card">
                     <div class="team-avatar">TG</div>
                     <h3 class="team-name">Tigran Gabrielyan</h3>
-                    <p class="team-role">CEO & Key Co-ordinator</p>
-                    <p class="team-bio">The visionary behind Chair Physics who transformed a classroom joke into a serious engineering project. Tigran's leadership and creative thinking drive the project's innovation.</p>
+                    <p class="team-role">CEO & Project Coordinator</p>
+                    <p class="team-bio">
+                        The visionary behind Chair Physics who transformed a classroom experiment into 
+                        a serious engineering project. Tigran's leadership and creative thinking drive 
+                        the project's innovation and strategic direction.
+                    </p>
                 </div>
 
                 <!-- Mark -->
                 <div class="team-card" style="position: relative;">
-                    <div class="restricted-overlay" id="overlay-mark">🔒 RESTRICTED</div>
+                    <div class="restricted-overlay" id="overlay-mark">
+                        <i class="fi fi-sr-lock"></i>
+                        <span>RESTRICTED</span>
+                    </div>
                     <div class="team-avatar">MG</div>
                     <h3 class="team-name">Mark Grigoryan</h3>
                     <p class="team-role">CPO & 3D Modeling Specialist</p>
-                    <p class="team-bio">The first student of Chair Physics and now the chief product officer. Mark brings expertise in 3D design and prototyping to bring concepts to reality.</p>
+                    <p class="team-bio">
+                        The first student of Chair Physics and now Chief Product Officer. Mark brings 
+                        expertise in 3D design and prototyping to transform concepts into tangible reality 
+                        through precision engineering and innovative design solutions.
+                    </p>
                 </div>
 
                 <!-- Yuchan -->
                 <div class="team-card" style="position: relative;">
-                    <div class="restricted-overlay" id="overlay-yuchan">🔒 RESTRICTED</div>
+                    <div class="restricted-overlay" id="overlay-yuchan">
+                        <i class="fi fi-sr-lock"></i>
+                        <span>RESTRICTED</span>
+                    </div>
                     <div class="team-avatar">YS</div>
                     <h3 class="team-name">Yuchan Seo</h3>
                     <p class="team-role">CTO & Engineering Lead</p>
-                    <p class="team-bio">The technical mastermind providing expertise in programming, physics, and systems engineering. Yuchan ensures the project's technical excellence.</p>
+                    <p class="team-bio">
+                        The technical mastermind providing expertise in programming, physics, and systems 
+                        engineering. Yuchan ensures the project's technical excellence, implementing control 
+                        systems and optimizing performance parameters.
+                    </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Technical Specs (Restricted) -->
-        <div style="position: relative; margin-top: clamp(50px, 8vw, 80px);">
-            <div class="restricted-overlay" id="overlay-specs">🔒 RESTRICTED</div>
-            
-            <div style="background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to)); backdrop-filter: blur(20px); border: 2px solid rgba(16, 185, 129, 0.2); border-radius: clamp(16px, 3vw, 24px); padding: clamp(30px, 5vw, 50px); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.2);">
-                <h3 style="font-size: clamp(1.8em, 4vw, 2.5em); font-weight: 800; background: linear-gradient(135deg, #10b981, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: clamp(25px, 4vw, 35px); font-family: 'Orbitron', sans-serif; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                    <i class="fi fi-rr-settings" style="color: #10b981;"></i>
-                    Technical Specifications
-                </h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        Custom engineered rolling chair base with reinforced structure
-                    </li>
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        5x 60V high-performance brushless motors for maximum torque
-                    </li>
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        Arduino Mega 2560 or Raspberry Pi microcontroller system
-                    </li>
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        Power Distribution Board (PDB) for efficient energy management
-                    </li>
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        High-capacity lithium power bank for extended operation
-                    </li>
-                    <li style="color: var(--text-secondary); padding: 12px 0; padding-left: 30px; position: relative; font-size: clamp(0.95em, 2vw, 1.1em); line-height: 1.6;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: 700; font-size: 1.2em;">→</span>
-                        Custom precision wheel assembly with advanced bearings
-                    </li>
-                </ul>
+        <!-- Technical Specifications Section -->
+        <section class="section" style="position: relative;">
+            <div class="restricted-overlay" id="overlay-specs">
+                <i class="fi fi-sr-lock"></i>
+                <span>RESTRICTED</span>
             </div>
-        </div>
+            
+            <div class="content-card">
+                <div class="content-header">
+                    <div class="content-icon">
+                        <i class="fi fi-rr-settings"></i>
+                    </div>
+                    <h3 class="content-title">Technical Specifications</h3>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-chair-office spec-icon"></i>
+                            <h4 class="spec-title">Chair Base</h4>
+                        </div>
+                        <p class="spec-description">
+                            Custom engineered rolling chair base with reinforced structural integrity and optimized weight distribution
+                        </p>
+                    </div>
 
-        <!-- Origin Story (Restricted) -->
-        <div style="position: relative; margin-top: clamp(50px, 8vw, 80px);">
-            <div class="restricted-overlay" id="overlay-origin">🔒 RESTRICTED</div>
-            
-            <div style="background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to)); backdrop-filter: blur(20px); border: 2px solid rgba(99, 102, 241, 0.2); border-radius: clamp(16px, 3vw, 24px); padding: clamp(30px, 5vw, 50px); box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);">
-                <h3 style="font-size: clamp(1.8em, 4vw, 2.5em); font-weight: 800; background: linear-gradient(135deg, #6366f1, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: clamp(25px, 4vw, 35px); font-family: 'Orbitron', sans-serif; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                    <i class="fi fi-rr-time-past" style="color: #10b981;"></i>
-                    The Origin Story
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.8; font-size: clamp(0.95em, 2vw, 1.1em);">
-                    It all began in October 2025 during a mundane Computer Science class. To combat the tedium, Tigran Gabrielyan started experimenting with the rolling chair he was sitting on, discovering its engineering intricacies. What started as teaching his friend Mark Grigoryan how to use the chair efficiently evolved into "Chair Physics" - initially a humorous mini-class between lessons.
-                    <br><br>
-                    As word spread and more students became interested, the concept transformed from a five-minute break activity into something more substantial. During a call with Mark, Tigran proposed an ambitious idea: create a motorized chair capable of 50 kph. They brought in Yuchan Seo for his technical expertise, and together, the three founders realized this wasn't just a joke anymore - it was a genuine engineering challenge that would teach them valuable skills in physics, programming, design, and teamwork.
-                    <br><br>
-                    Today, Chair Physics represents the intersection of curiosity, innovation, and collaborative engineering - proof that the best projects often start from the most unexpected places.
-                </p>
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-engine-warning spec-icon"></i>
+                            <h4 class="spec-title">Motor System</h4>
+                        </div>
+                        <p class="spec-description">
+                            5x 60V high-performance brushless motors delivering maximum torque output and acceleration
+                        </p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-microchip spec-icon"></i>
+                            <h4 class="spec-title">Control System</h4>
+                        </div>
+                        <p class="spec-description">
+                            Arduino Mega 2560 or Raspberry Pi microcontroller with advanced programming capabilities
+                        </p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-bolt spec-icon"></i>
+                            <h4 class="spec-title">Power Distribution</h4>
+                        </div>
+                        <p class="spec-description">
+                            Advanced PDB (Power Distribution Board) for efficient energy management and thermal optimization
+                        </p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-battery-full spec-icon"></i>
+                            <h4 class="spec-title">Power Bank</h4>
+                        </div>
+                        <p class="spec-description">
+                            High-capacity lithium power system for extended operational duration and consistent performance
+                        </p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-header">
+                            <i class="fi fi-rr-circle-half-stroke spec-icon"></i>
+                            <h4 class="spec-title">Wheel Assembly</h4>
+                        </div>
+                        <p class="spec-description">
+                            Custom precision wheel assembly with advanced bearing systems for superior speed and maneuverability
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Origin Story Section -->
+        <section class="section" style="position: relative;">
+            <div class="restricted-overlay" id="overlay-origin">
+                <i class="fi fi-sr-lock"></i>
+                <span>RESTRICTED</span>
+            </div>
+            
+            <div class="content-card">
+                <div class="content-header">
+                    <div class="content-icon">
+                        <i class="fi fi-rr-time-past"></i>
+                    </div>
+                    <h3 class="content-title">The Origin Story</h3>
+                </div>
+                
+                <div class="story-text">
+                    <p>
+                        It all began in <span class="story-highlight">October 2025</span> during a mundane Computer Science class. 
+                        To combat the tedium, Tigran Gabrielyan started experimenting with his rolling chair, discovering its 
+                        engineering intricacies and the physics behind its movement. What started as teaching his friend 
+                        Mark Grigoryan how to use the chair efficiently evolved into <span class="story-highlight">"Chair Physics"</span> - 
+                        initially a humorous mini-class conducted between lessons.
+                    </p>
+                    
+                    <p>
+                        As word spread through the school and more students became interested in the unconventional lessons, 
+                        the concept transformed from a five-minute break activity into something far more substantial. During 
+                        a late-night call with Mark, Tigran proposed an ambitious idea that would change everything: 
+                        <span class="story-highlight">create a motorized chair capable of 50 kph</span>.
+                    </p>
+                    
+                    <p>
+                        They brought in Yuchan Seo for his technical expertise in programming and systems engineering. Together, 
+                        the three founders realized this wasn't just a joke anymore - it was a <span class="story-highlight">genuine 
+                        engineering challenge</span> that would teach them valuable skills in physics, programming, 3D design, 
+                        and teamwork. What started as classroom boredom had evolved into a serious project with real engineering 
+                        challenges to overcome.
+                    </p>
+                    
+                    <p>
+                        Today, Chair Physics represents the intersection of curiosity, innovation, and collaborative engineering - 
+                        proof that the best projects often start from the most unexpected places. The team continues to push 
+                        boundaries, combining theoretical knowledge with practical application to create something truly unique.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Timeline Section -->
+        <section class="section" style="position: relative;">
+            <div class="restricted-overlay" id="overlay-timeline">
+                <i class="fi fi-sr-lock"></i>
+                <span>RESTRICTED</span>
+            </div>
+            
+            <div class="content-card">
+                <div class="content-header">
+                    <div class="content-icon">
+                        <i class="fi fi-rr-calendar"></i>
+                    </div>
+                    <h3 class="content-title">Project Timeline</h3>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">October 2025</div>
+                            <h4 class="timeline-title">Project Inception</h4>
+                            <p class="timeline-description">
+                                Chair Physics concept born during Computer Science class. Initial experiments with chair mechanics and physics.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">November 2025</div>
+                            <h4 class="timeline-title">Team Formation</h4>
+                            <p class="timeline-description">
+                                Tigran, Mark, and Yuchan officially form the founding team. Project transitions from concept to active development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">December 2025</div>
+                            <h4 class="timeline-title">Design Phase</h4>
+                            <p class="timeline-description">
+                                Initial 3D modeling and technical specifications completed. Component research and motor selection finalized.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">January 2026</div>
+                            <h4 class="timeline-title">Prototype Development</h4>
+                            <p class="timeline-description">
+                                Control system programming begins. First prototype components ordered and assembly planning initiated.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">February 2026</div>
+                            <h4 class="timeline-title">Current Phase</h4>
+                            <p class="timeline-description">
+                                Active development and testing. System integration and performance optimization in progress.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
+    <!-- JavaScript -->
     <script>
-        const correctPassword = "chairphysics2025";
-        let isUnlocked = false;
+        // ==================== CUSTOM CURSOR ====================
+        const cursorBig = document.querySelector('.big');
+        const cursorSmall = document.querySelector('.small');
+        const interactiveElements = document.querySelectorAll('a, button, input, .team-card, .feature-box, .spec-card, .info-card');
 
-        // Listen for Enter key
-        document.getElementById('passwordInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
+        // Position cursor on mouse move
+        document.addEventListener('mousemove', function(e) {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            cursorBig.style.transform = `translate(calc(${x}px - 50%), calc(${y}px - 50%))`;
+            cursorSmall.style.left = x + 'px';
+            cursorSmall.style.top = y + 'px';
         });
 
+        // Add hover effects on mouse down
+        document.addEventListener('mousedown', function() {
+            cursorBig.classList.add('hover__big');
+            cursorSmall.classList.add('hover__small');
+        });
+
+        // Remove hover effects on mouse up
+        document.addEventListener('mouseup', function() {
+            cursorBig.classList.remove('hover__big');
+            cursorSmall.classList.remove('hover__small');
+        });
+
+        // Add hover effects on interactive elements
+        interactiveElements.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursorBig.classList.add('hover__big');
+                cursorSmall.classList.add('hover__small');
+            });
+            item.addEventListener('mouseleave', () => {
+                cursorBig.classList.remove('hover__big');
+                cursorSmall.classList.remove('hover__small');
+            });
+        });
+
+        // ==================== MAIN APPLICATION ====================
+        // Configuration
+        const CONFIG = {
+            correctPassword: "chairphysics2025",
+            storageKey: 'accessAttempts'
+        };
+
+        // State management
+        let isUnlocked = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePasswordInput();
+            logSystemInit();
+        });
+
+        // Password input handler
+        function initializePasswordInput() {
+            const input = document.getElementById('passwordInput');
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+        }
+
+        // Password verification
         function checkPassword() {
             const input = document.getElementById('passwordInput');
             const password = input.value.trim();
             
             if (!password) {
-                showNotification('Please enter a password', 'error');
+                showNotification('Please enter an access code', 'error');
                 return;
             }
             
-            if (password === correctPassword) {
+            if (password === CONFIG.correctPassword) {
                 isUnlocked = true;
                 unlockContent();
-                showNotification('✓ Access Granted! Welcome to Chair Physics.', 'success');
+                showNotification('Access Granted - Welcome to Chair Physics', 'success');
                 input.value = '';
-                
-                // Log successful access
-                console.log('%c✅ ACCESS GRANTED', 'color: #10b981; font-size: 18px; font-weight: bold;');
-                logAccess(password, true);
+                logAccessAttempt(password, true);
             } else {
-                showNotification('✗ Incorrect Password', 'error');
+                showNotification('Access Denied - Incorrect Code', 'error');
                 input.value = '';
-                
-                // Log failed attempt
-                console.log('%c🔒 WRONG PASSWORD: ' + password, 'color: #ef4444; font-size: 16px; font-weight: bold;');
-                logAccess(password, false);
+                logAccessAttempt(password, false);
             }
         }
 
+        // Unlock restricted content
         function unlockContent() {
             // Remove all restricted overlays
-            document.querySelectorAll('.restricted-overlay').forEach(overlay => {
-                overlay.classList.add('hidden');
+            const overlays = document.querySelectorAll('.restricted-overlay');
+            overlays.forEach((overlay, index) => {
+                setTimeout(() => {
+                    overlay.classList.add('unlocked');
+                }, index * 100);
             });
             
-            // Add unlock animation to cards
-            document.querySelectorAll('.team-card').forEach((card, index) => {
+            // Add animation to cards
+            const cards = document.querySelectorAll('.team-card, .content-card');
+            cards.forEach((card, index) => {
                 setTimeout(() => {
-                    card.style.animation = 'pulse 0.5s ease';
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 200);
                 }, index * 100);
             });
         }
 
-        function showNotification(message, type) {
+        // Show notification
+        function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = 'notification' + (type === 'error' ? ' error' : '');
-            notification.textContent = message;
+            
+            const icon = document.createElement('i');
+            icon.className = type === 'error' ? 'fi fi-rr-cross-circle' : 'fi fi-rr-check-circle';
+            
+            const text = document.createElement('span');
+            text.textContent = message;
+            
+            notification.appendChild(icon);
+            notification.appendChild(text);
             document.body.appendChild(notification);
 
             setTimeout(() => {
@@ -767,43 +1575,75 @@
             }, 3000);
         }
 
-        function logAccess(password, success) {
-            let attempts = JSON.parse(localStorage.getItem('accessAttempts') || '[]');
-            attempts.push({
-                password: password,
-                success: success,
-                time: new Date().toLocaleString(),
-                attemptNumber: attempts.length + 1,
-                userAgent: navigator.userAgent
-            });
-            localStorage.setItem('accessAttempts', JSON.stringify(attempts));
-            
-            console.log('%c📋 Access Attempt Logged:', 'color: #6366f1; font-size: 14px;');
-            console.table([{
-                password: password,
-                success: success,
-                time: new Date().toLocaleString()
-            }]);
-        }
-
-        // Helper function to view all attempts
-        function viewAllAttempts() {
-            const attempts = JSON.parse(localStorage.getItem('accessAttempts') || '[]');
-            if (attempts.length > 0) {
-                console.log('%c📋 ALL ACCESS ATTEMPTS:', 'color: #10b981; font-size: 18px; font-weight: bold;');
-                console.table(attempts);
-            } else {
-                console.log('%cNo access attempts recorded yet.', 'color: #6b7280;');
+        // Log access attempt
+        function logAccessAttempt(password, success) {
+            try {
+                let attempts = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+                const attempt = {
+                    password: password,
+                    success: success,
+                    timestamp: new Date().toISOString(),
+                    attemptNumber: attempts.length + 1
+                };
+                
+                attempts.push(attempt);
+                localStorage.setItem(CONFIG.storageKey, JSON.stringify(attempts));
+                
+                // Console logging
+                const status = success ? '✅ ACCESS GRANTED' : '🔒 ACCESS DENIED';
+                const style = success 
+                    ? 'color: #00ff88; font-size: 16px; font-weight: bold;'
+                    : 'color: #ff2a6d; font-size: 16px; font-weight: bold;';
+                
+                console.log(`%c${status}`, style);
+                console.table([{
+                    Password: password,
+                    Success: success ? '✓' : '✗',
+                    Time: new Date().toLocaleString(),
+                    'Attempt #': attempt.attemptNumber
+                }]);
+            } catch (error) {
+                console.error('Failed to log attempt:', error);
             }
         }
 
-        // Initialize
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
-        console.log('%c🪑 WeePhy 2.0 - Chair Physics', 'color: #10b981; font-size: 18px; font-weight: bold;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
-        console.log('%c📝 Console Commands:', 'color: #6366f1; font-size: 16px; font-weight: bold;');
-        console.log('%cviewAllAttempts() - View all access attempts', 'color: #10b981; font-size: 12px;');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
+        // Console utilities
+        function viewAllAttempts() {
+            try {
+                const attempts = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+                if (attempts.length > 0) {
+                    console.log('%c📋 ALL ACCESS ATTEMPTS', 'color: #00ebff; font-size: 18px; font-weight: bold;');
+                    console.table(attempts.map(a => ({
+                        'Attempt #': a.attemptNumber,
+                        Password: a.password,
+                        Success: a.success ? '✓' : '✗',
+                        Timestamp: new Date(a.timestamp).toLocaleString()
+                    })));
+                } else {
+                    console.log('%cNo access attempts recorded yet.', 'color: #89b1c4;');
+                }
+            } catch (error) {
+                console.error('Failed to retrieve attempts:', error);
+            }
+        }
+
+        function clearAttempts() {
+            if (confirm('Are you sure you want to clear all access attempt logs?')) {
+                localStorage.removeItem(CONFIG.storageKey);
+                console.log('%c✓ Access logs cleared', 'color: #00ff88;');
+            }
+        }
+
+        // System initialization log
+        function logSystemInit() {
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #08436a;');
+            console.log('%cWeePhy 2.0 - Chair Physics System', 'color: #00ebff; font-size: 18px; font-weight: bold;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #08436a;');
+            console.log('%c📝 Console Commands:', 'color: #00ebff; font-size: 14px; font-weight: bold;');
+            console.log('%c  viewAllAttempts() - View all access attempts', 'color: #00ff88;');
+            console.log('%c  clearAttempts()   - Clear access attempt logs', 'color: #ffae00;');
+            console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #08436a;');
+        }
     </script>
 </body>
 </html>
