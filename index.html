@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#6366f1">
-    <title>Chair Physics - Revolutionary Engineering Project</title>
+    <title>WeePhy 2.0 - Revolutionary Engineering Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -15,7 +15,6 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
     <style>
-        /* [All previous CSS remains the same - keeping it concise] */
         .password-container {
             margin-bottom: clamp(20px, 4vw, 30px);
             display: flex;
@@ -55,6 +54,91 @@
         #googleSignInBtn {
             max-width: 400px;
             width: 100%;
+        }
+
+        .manual-google-signin {
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .google-email-input {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+            border: 1px solid rgba(66, 133, 244, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #3D3D3D;
+            padding: 12px 15px;
+            cursor: text;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .google-email-input:hover {
+            border-color: rgba(66, 133, 244, 0.5);
+        }
+
+        .google-email-input:focus-within {
+            background: #464646;
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+
+        .google-email-input input {
+            outline: none;
+            width: 100%;
+            border: none;
+            background: none;
+            color: rgb(255, 255, 255);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .google-email-input input::placeholder {
+            color: rgb(162, 162, 162);
+        }
+
+        .google-email-input i {
+            color: #4285f4;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .google-signin-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .google-signin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+        }
+
+        .google-signin-btn:active {
+            transform: translateY(0);
+        }
+
+        .google-signin-btn i {
+            font-size: 1.2em;
         }
 
         .search-label {
@@ -1081,8 +1165,8 @@
                     <i class="fi fi-sr-chair-office"></i>
                 </div>
                 <div>
-                    <h1>Chair Physics</h1>
-                    <p class="tagline">Engineering Innovation Through Speed & Passion</p>
+                    <h1>WeePhy 2.0</h1>
+                    <p class="tagline">Chair Physics<br>Engineering Innovation Through Speed & Passion</p>
                 </div>
             </div>
             <div class="funding-badge">
@@ -1099,8 +1183,30 @@
         </nav>
 
         <div class="password-container">
-            <!-- Google Sign-In Button -->
+            <!-- Google Sign-In Button (Automatic) -->
             <div id="googleSignInBtn"></div>
+            
+            <!-- OR Divider -->
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+            
+            <!-- Manual Google Sign-In -->
+            <div class="manual-google-signin">
+                <div class="google-email-input">
+                    <i class="fi fi-brands-google"></i>
+                    <input 
+                        type="email" 
+                        id="googleEmailInput" 
+                        placeholder="Enter your @gmail.com or school email..."
+                        autocomplete="email"
+                    >
+                </div>
+                <button class="google-signin-btn" onclick="manualGoogleSignIn()">
+                    <i class="fi fi-brands-google"></i>
+                    <span>Sign in with Google (Manual)</span>
+                </button>
+            </div>
             
             <!-- OR Divider -->
             <div class="auth-divider">
@@ -1233,13 +1339,10 @@
         const correctPassword = "chairphysics2025";
         let isUnlocked = false;
 
-        // ⚠️ IMPORTANT: Use ONLY your CLIENT ID (NOT client_secret!)
-        // Go to https://console.cloud.google.com/apis/credentials
-        // Create a NEW OAuth 2.0 Client ID for Web application
-        // Add your GitHub Pages URL to "Authorized JavaScript origins"
-        const GOOGLE_CLIENT_ID = "YOUR_NEW_CLIENT_ID_HERE.apps.googleusercontent.com";
+        // ⚠️ IMPORTANT: Replace with your actual Google Client ID
+        const GOOGLE_CLIENT_ID = "841955663687-mo162p78g3jossoe5og1rkk9nsrf73c9.apps.googleusercontent.com";
 
-        // Initialize Google Sign-In
+        // Initialize Google Sign-In (Automatic)
         function initializeGoogleSignIn() {
             if (typeof google === 'undefined') {
                 console.error('Google Sign-In library not loaded');
@@ -1264,24 +1367,57 @@
             );
         }
 
-        // Handle Google Sign-In Response
+        // Manual Google Sign-In (School-Friendly)
+        function manualGoogleSignIn() {
+            const emailInput = document.getElementById('googleEmailInput');
+            const email = emailInput.value.trim();
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                showNotification('✗ Please enter your email address', 'error');
+                return;
+            }
+            
+            if (!emailRegex.test(email)) {
+                showNotification('✗ Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Accept any email domain (not just gmail.com)
+            console.log('%c✅ Manual Google Sign-In Successful!', 'color: #10b981; font-size: 16px; font-weight: bold;');
+            console.log('User Email:', email);
+            
+            // Log the login attempt
+            logLoginAttempt({
+                method: 'google-manual',
+                email: email,
+                success: true
+            });
+            
+            // Unlock content
+            isUnlocked = true;
+            unlockRestrictedContent();
+            showNotification(`✓ Welcome! Access granted for ${email}`, 'success');
+            emailInput.value = '';
+        }
+
+        // Handle Google Sign-In Response (Automatic)
         function handleGoogleSignIn(response) {
             try {
-                // Decode JWT token to get user info
                 const userInfo = parseJwt(response.credential);
                 
                 console.log('%c✅ Google Sign-In Successful!', 'color: #10b981; font-size: 16px; font-weight: bold;');
                 console.log('User:', userInfo.email);
                 
-                // Log the login attempt
                 logLoginAttempt({
-                    method: 'google',
+                    method: 'google-automatic',
                     email: userInfo.email,
                     name: userInfo.name,
                     success: true
                 });
                 
-                // Unlock content
                 isUnlocked = true;
                 unlockRestrictedContent();
                 showNotification(`✓ Welcome, ${userInfo.name}! Access granted.`, 'success');
@@ -1334,7 +1470,6 @@
                 showNotification('✓ Access Granted! Restricted content unlocked.', 'success');
                 passwordInput.value = '';
             } else if (enteredPassword.length > 0) {
-                // Log wrong password
                 console.log('%c🔒 WRONG PASSWORD: ' + enteredPassword, 'color: #ef4444; font-size: 16px; font-weight: bold;');
                 
                 logLoginAttempt({
@@ -1417,7 +1552,7 @@
             const attempts = JSON.parse(localStorage.getItem('loginAttempts') || '[]');
             if (attempts.length > 0) {
                 console.log('%c📋 ALL LOGIN ATTEMPTS:', 'color: #10b981; font-size: 18px; font-weight: bold;');
-                console.table(attempts);
+                console.table(attempts); 
             } else {
                 console.log('%cNo login attempts recorded yet.', 'color: #6b7280;');
             }
@@ -1425,8 +1560,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Google Sign-In
-            if (GOOGLE_CLIENT_ID !== "841955663687-mo162p78g3jossoe5og1rkk9nsrf73c9.apps.googleusercontent.com") {
+            // Initialize Google Sign-In (Automatic)
+            if (GOOGLE_CLIENT_ID !== "YOUR_CLIENT_ID_HERE.apps.googleusercontent.com") {
                 initializeGoogleSignIn();
             } else {
                 console.warn('%c⚠️ Google Sign-In not configured. Set GOOGLE_CLIENT_ID in the code.', 
@@ -1439,6 +1574,15 @@
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     checkPassword();
+                }
+            });
+
+            // Google email input event listener (Enter key)
+            const googleEmailInput = document.getElementById('googleEmailInput');
+            googleEmailInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    manualGoogleSignIn();
                 }
             });
 
