@@ -3,98 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#6366f1">
-    <meta name="description" content="WeePhy 2.0 - The most advanced student intelligence platform with AI-powered quiz prediction, comprehensive study tools, and smart academic calendar management">
-    <meta name="keywords" content="student helper, quiz predictor, study tools, academic calendar, GPA calculator, AI education">
-    <meta name="author" content="WeePhy Development Team">
-    <title>WeePhy 2.0 | Advanced Student Intelligence Platform</title>
+    <meta name="theme-color" content="#059669">
+    <meta name="description" content="WeePhy 2.0 - Advanced student intelligence platform with AI-powered quiz prediction and comprehensive study tools">
+    <title>WeePhy 2.0 | Student Intelligence Platform</title>
     
-    <!-- Fonts - Distinctive Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
-
-        /* ==================== PROFESSIONAL DESIGN SYSTEM ==================== */
         :root {
-            /* Color Palette - Indigo & Emerald System */
-            --primary-600: #4f46e5;
-            --primary-500: #6366f1;
-            --primary-400: #818cf8;
-            --secondary-600: #059669;
-            --secondary-500: #10b981;
-            --secondary-400: #34d399;
-            --accent-pink: #ec4899;
-            --accent-orange: #f97316;
-            --accent-cyan: #06b6d4;
-            --accent-yellow: #eab308;
+            --emerald-50: #ecfdf5;
+            --emerald-100: #d1fae5;
+            --emerald-200: #a7f3d0;
+            --emerald-300: #6ee7b7;
+            --emerald-400: #34d399;
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            --emerald-700: #047857;
+            --emerald-800: #065f46;
+            --emerald-900: #064e3b;
             
-            /* Neutral Palette */
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --gray-950: #030712;
+            --teal-400: #2dd4bf;
+            --teal-500: #14b8a6;
+            --teal-600: #0d9488;
             
-            /* Background System */
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --bg-glass: rgba(15, 23, 42, 0.8);
-            --bg-overlay: rgba(0, 0, 0, 0.6);
+            --lime-400: #a3e635;
+            --lime-500: #84cc16;
             
-            /* Typography */
-            --font-display: 'Outfit', 'Space Grotesk', sans-serif;
-            --font-body: 'DM Sans', system-ui, sans-serif;
-            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --slate-950: #020617;
             
-            /* Spacing Scale */
-            --space-1: 0.25rem;
-            --space-2: 0.5rem;
-            --space-3: 0.75rem;
-            --space-4: 1rem;
-            --space-5: 1.25rem;
-            --space-6: 1.5rem;
-            --space-8: 2rem;
-            --space-10: 2.5rem;
-            --space-12: 3rem;
-            --space-16: 4rem;
-            --space-20: 5rem;
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --bg-elevated: #273549;
             
-            /* Shadows */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
             --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.4);
+            --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.3);
             
-            /* Transitions */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Border Radius */
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
             --radius-2xl: 1.5rem;
-            --radius-full: 9999px;
         }
 
-        /* Reset & Base */
-        *, *::before, *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -102,309 +72,271 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: var(--font-primary);
             background: var(--bg-primary);
-            color: var(--gray-100);
+            color: var(--slate-100);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         ::selection {
-            background: var(--primary-500);
+            background: var(--emerald-500);
             color: white;
         }
 
-        /* Custom Cursor */
-        * {
-            cursor: none;
-        }
-
-        .cursor {
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            will-change: transform;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--secondary-500);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px var(--secondary-500);
-        }
-
-        .cursor-ring {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--primary-500);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .cursor-ring.hover {
-            width: 60px;
-            height: 60px;
-        }
-
-        /* Background Effects */
         .bg-gradient {
             position: fixed;
             inset: 0;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(132, 204, 22, 0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
 
-        .grid-pattern {
+        .grid-overlay {
             position: fixed;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
             pointer-events: none;
             z-index: 0;
+            opacity: 0.4;
         }
 
-        /* Container */
         .container {
             position: relative;
             z-index: 1;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 var(--space-6);
+            padding: 0 1.5rem;
         }
 
         /* Navigation */
-        .nav {
+        .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--bg-glass);
+            background: rgba(10, 15, 26, 0.85);
             backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: var(--space-4) var(--space-6);
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .nav-brand {
+        .brand {
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: 0.75rem;
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: white;
             text-decoration: none;
         }
 
-        .nav-logo {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
-            border-radius: var(--radius-lg);
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
+            border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.25rem;
             box-shadow: var(--shadow-glow);
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: var(--space-2);
+            gap: 0.5rem;
             list-style: none;
         }
 
         .nav-link {
-            padding: var(--space-2) var(--space-4);
-            color: var(--gray-300);
+            padding: 0.5rem 1rem;
+            color: var(--slate-400);
             text-decoration: none;
             font-weight: 600;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-base);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: white;
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(16, 185, 129, 0.15);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: var(--space-20) 0;
+            padding: 5rem 0 4rem;
             text-align: center;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2) var(--space-4);
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: var(--radius-full);
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 9999px;
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--primary-400);
-            margin-bottom: var(--space-6);
+            color: var(--emerald-400);
+            margin-bottom: 1.5rem;
         }
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 800;
             line-height: 1.1;
-            margin-bottom: var(--space-6);
-            background: linear-gradient(135deg, white 0%, var(--primary-400) 50%, var(--secondary-400) 100%);
-            background-clip: text;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--emerald-400) 50%, var(--teal-400) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 8s ease infinite;
-            background-size: 200% auto;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 100% center; }
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: var(--gray-400);
-            max-width: 700px;
-            margin: 0 auto var(--space-8);
-            line-height: 1.8;
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: var(--slate-400);
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
         }
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-12);
-            flex-wrap: wrap;
-            margin-top: var(--space-12);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .stat-item {
+        .stat {
             text-align: center;
         }
 
         .stat-value {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
-            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1rem;
-            color: var(--gray-400);
+            font-size: 0.875rem;
+            color: var(--slate-500);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 600;
+            margin-top: 0.5rem;
         }
 
-        /* Tab System */
-        .tabs {
+        /* Tabs */
+        .tabs-container {
             background: var(--bg-secondary);
-            border-radius: var(--radius-2xl);
+            border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: var(--shadow-2xl);
-            margin: var(--space-16) 0;
+            margin: 3rem 0;
+            border: 1px solid rgba(16, 185, 129, 0.1);
         }
 
-        .tab-nav {
+        .tab-header {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
         }
 
-        .tab-button {
+        .tab-btn {
             background: transparent;
             border: none;
-            color: var(--gray-400);
-            padding: var(--space-5) var(--space-6);
+            color: var(--slate-400);
+            padding: 1.25rem 1.5rem;
             font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: all 0.2s;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-2);
+            gap: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .tab-button:last-child {
+        .tab-btn:last-child {
             border-right: none;
         }
 
-        .tab-button::after {
+        .tab-btn::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+            background: linear-gradient(90deg, var(--emerald-500), var(--teal-500));
             transform: scaleX(0);
-            transition: transform var(--transition-base);
+            transition: transform 0.3s;
         }
 
-        .tab-button:hover {
-            background: rgba(99, 102, 241, 0.1);
+        .tab-btn:hover {
+            background: rgba(16, 185, 129, 0.08);
+            color: var(--emerald-400);
+        }
+
+        .tab-btn.active {
+            background: rgba(16, 185, 129, 0.12);
             color: white;
         }
 
-        .tab-button.active {
-            background: rgba(99, 102, 241, 0.15);
-            color: white;
-        }
-
-        .tab-button.active::after {
+        .tab-btn.active::after {
             transform: scaleX(1);
         }
 
-        .tab-content {
+        .tab-panel {
             display: none;
-            padding: var(--space-10);
-            animation: fadeIn 0.4s ease-out;
+            padding: 2.5rem;
         }
 
-        .tab-content.active {
+        .tab-panel.active {
             display: block;
+            animation: fadeIn 0.4s ease;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -412,20 +344,37 @@
             }
         }
 
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title svg {
+            width: 32px;
+            height: 32px;
+            color: var(--emerald-500);
+        }
+
         /* Cards */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-            gap: var(--space-6);
-            margin: var(--space-8) 0;
+            grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .card {
             background: var(--bg-tertiary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            padding: var(--space-6);
-            transition: all var(--transition-slow);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -437,15 +386,15 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+            background: linear-gradient(90deg, var(--emerald-500), var(--teal-500));
             opacity: 0;
-            transition: opacity var(--transition-base);
+            transition: opacity 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-2xl);
-            border-color: rgba(99, 102, 241, 0.5);
+            border-color: rgba(16, 185, 129, 0.3);
         }
 
         .card:hover::before {
@@ -453,158 +402,177 @@
         }
 
         .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
-            border-radius: var(--radius-lg);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
+            border-radius: 0.875rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: var(--space-4);
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
             box-shadow: var(--shadow-glow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
         .card-title {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 1.375rem;
             font-weight: 700;
             color: white;
-            margin-bottom: var(--space-3);
+            margin: 0;
+        }
+
+        .confidence-badge {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .card-text {
-            color: var(--gray-400);
+            color: var(--slate-400);
             line-height: 1.7;
-            margin-bottom: var(--space-4);
+            margin-bottom: 1.25rem;
         }
 
-        .feature-list {
-            display: grid;
-            gap: var(--space-2);
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            color: var(--gray-300);
-            font-size: 0.95rem;
-        }
-
-        .feature-item i {
-            color: var(--secondary-500);
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            margin: var(--space-4) 0;
+        .progress-wrapper {
+            margin: 1.25rem 0;
         }
 
         .progress-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: var(--space-2);
-            font-size: 0.9rem;
-            color: var(--gray-400);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-500);
         }
 
         .progress-bar {
             height: 8px;
             background: rgba(0, 0, 0, 0.5);
-            border-radius: var(--radius-full);
+            border-radius: 9999px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--secondary-500), var(--primary-500));
-            border-radius: var(--radius-full);
-            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(90deg, var(--emerald-500), var(--teal-500));
+            border-radius: 9999px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
         }
 
         .progress-fill::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 2s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2.5s infinite;
         }
 
-        @keyframes shine {
+        @keyframes shimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
 
-        /* Tags */
-        .tag-list {
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--space-2);
+            gap: 0.5rem;
         }
 
         .tag {
-            padding: var(--space-1) var(--space-3);
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: var(--radius-full);
-            font-size: 0.85rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 9999px;
+            font-size: 0.8125rem;
             font-family: var(--font-mono);
-            color: var(--primary-400);
+            color: var(--emerald-400);
+            font-weight: 500;
         }
 
-        /* Form Elements */
+        .feature-list {
+            display: grid;
+            gap: 0.625rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            color: var(--slate-300);
+            font-size: 0.9375rem;
+        }
+
+        .feature-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--emerald-500);
+            flex-shrink: 0;
+        }
+
+        /* Forms */
         .form-group {
-            margin-bottom: var(--space-5);
+            margin-bottom: 1.5rem;
         }
 
         .form-label {
             display: block;
             font-weight: 600;
-            color: var(--gray-300);
-            margin-bottom: var(--space-2);
+            color: var(--slate-300);
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
         }
 
         .form-input,
         .form-select {
             width: 100%;
-            padding: var(--space-3) var(--space-4);
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-md);
+            padding: 0.875rem 1rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 0.5rem;
             color: white;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: all var(--transition-base);
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            transition: all 0.2s;
         }
 
         .form-input:focus,
         .form-select:focus {
             outline: none;
-            border-color: var(--primary-500);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            border-color: var(--emerald-500);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
         }
 
         .form-input::placeholder {
-            color: var(--gray-500);
+            color: var(--slate-600);
         }
 
         .btn {
-            padding: var(--space-3) var(--space-6);
-            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
             color: white;
             border: none;
-            border-radius: var(--radius-md);
+            border-radius: 0.5rem;
             font-family: var(--font-display);
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: var(--space-2);
+            gap: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -614,38 +582,52 @@
             box-shadow: var(--shadow-xl), var(--shadow-glow);
         }
 
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
         /* Calendar */
-        .calendar {
+        .calendar-container {
             background: var(--bg-tertiary);
-            border-radius: var(--radius-xl);
+            border-radius: 1rem;
             overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .calendar-header {
             background: rgba(0, 0, 0, 0.3);
-            padding: var(--space-5);
+            padding: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .calendar-nav-btn {
+        .calendar-nav {
             width: 40px;
             height: 40px;
-            background: rgba(99, 102, 241, 0.2);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: var(--radius-md);
-            color: var(--primary-400);
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 0.5rem;
+            color: var(--emerald-400);
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
         }
 
-        .calendar-nav-btn:hover {
-            background: rgba(99, 102, 241, 0.3);
+        .calendar-nav:hover {
+            background: rgba(16, 185, 129, 0.25);
+        }
+
+        .calendar-nav svg {
+            width: 20px;
+            height: 20px;
         }
 
         .calendar-title {
@@ -659,77 +641,139 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 1px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(16, 185, 129, 0.05);
         }
 
-        .calendar-day-name {
-            background: rgba(0, 0, 0, 0.5);
-            padding: var(--space-3);
+        .calendar-day-header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.75rem;
             text-align: center;
             font-weight: 700;
-            color: var(--gray-400);
-            font-size: 0.85rem;
+            color: var(--slate-500);
+            font-size: 0.8125rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .calendar-day {
             background: var(--bg-tertiary);
-            padding: var(--space-3);
-            min-height: 80px;
+            padding: 0.75rem;
+            min-height: 90px;
             position: relative;
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: all 0.2s;
         }
 
         .calendar-day:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(16, 185, 129, 0.08);
         }
 
-        .calendar-day-num {
+        .calendar-day-number {
             font-weight: 700;
-            color: var(--gray-400);
+            color: var(--slate-500);
+            font-size: 0.9375rem;
         }
 
-        .calendar-day.today .calendar-day-num {
-            color: var(--primary-400);
-            font-size: 1.1rem;
+        .calendar-day.today .calendar-day-number {
+            color: var(--emerald-400);
+            font-size: 1.125rem;
+        }
+
+        .calendar-day.other-month {
+            opacity: 0.3;
         }
 
         .calendar-event {
-            margin-top: var(--space-1);
-            padding: 2px 6px;
-            background: rgba(99, 102, 241, 0.2);
-            border-left: 2px solid var(--primary-500);
-            border-radius: 3px;
+            margin-top: 0.375rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(16, 185, 129, 0.15);
+            border-left: 3px solid var(--emerald-500);
+            border-radius: 0.25rem;
             font-size: 0.75rem;
-            color: var(--gray-300);
+            color: var(--slate-300);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        /* Notification */
-        .notification {
+        /* Result Box */
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 0.875rem;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--emerald-400);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-title svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .result-grid {
+            display: grid;
+            gap: 0.875rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.5rem;
+        }
+
+        .result-item strong {
+            color: var(--emerald-400);
+        }
+
+        /* Toast */
+        .toast {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
             color: white;
-            padding: var(--space-4) var(--space-5);
-            border-radius: var(--radius-lg);
+            padding: 1rem 1.5rem;
+            border-radius: 0.875rem;
             font-weight: 600;
             z-index: 1000;
             box-shadow: var(--shadow-2xl);
             animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
-            gap: var(--space-3);
+            gap: 0.75rem;
+        }
+
+        .toast svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .toast.fade-out {
+            animation: slideOut 0.3s ease forwards;
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateX(100px);
+                transform: translateX(100%);
             }
             to {
                 opacity: 1;
@@ -737,237 +781,298 @@
             }
         }
 
-        .notification.fadeOut {
-            animation: fadeOut 0.3s ease forwards;
-        }
-
-        @keyframes fadeOut {
+        @keyframes slideOut {
             to {
                 opacity: 0;
-                transform: translateX(100px);
+                transform: translateX(100%);
             }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-menu {
                 display: none;
             }
 
-            .hero-stats {
-                gap: var(--space-6);
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
 
-            .tab-nav {
+            .tab-header {
                 grid-template-columns: 1fr;
             }
 
-            .tab-button {
+            .tab-btn {
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
+
+            .tab-btn:last-child {
+                border-bottom: none;
+            }
+
+            .calendar-day {
+                min-height: 70px;
+                padding: 0.5rem;
+            }
         }
 
-        /* Section Titles */
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 800;
-            color: white;
-            margin-bottom: var(--space-6);
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-        }
-
-        .section-title i {
-            color: var(--secondary-500);
-        }
-
-        /* Result Box */
-        .result-box {
-            margin-top: var(--space-6);
-            padding: var(--space-5);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: var(--radius-lg);
-            display: none;
-        }
-
-        .result-box.show {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .result-title {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--secondary-500);
-            margin-bottom: var(--space-4);
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-        }
-
-        .result-grid {
+        /* Add Course List */
+        .course-list {
+            margin-top: 1.5rem;
             display: grid;
-            gap: var(--space-3);
+            gap: 0.75rem;
         }
 
-        .result-row {
+        .course-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 0.5rem;
             display: flex;
             justify-content: space-between;
-            padding: var(--space-3);
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: var(--radius-md);
+            align-items: center;
+            border: 1px solid rgba(16, 185, 129, 0.1);
         }
 
-        .result-row strong {
-            color: var(--primary-400);
+        .course-info {
+            flex: 1;
         }
-    
+
+        .course-name {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .course-details {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+
+        .course-gpa {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .remove-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-left: 1rem;
+        }
+
+        .remove-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .remove-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 0.875rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--emerald-500), var(--teal-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .summary-label {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body>
-
-    <!-- Custom Cursor -->
-    <div class="cursor cursor-dot"></div>
-    <div class="cursor cursor-ring"></div>
-
-    <!-- Background Effects -->
     <div class="bg-gradient"></div>
-    <div class="grid-pattern"></div>
+    <div class="grid-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-brand">
-                <div class="nav-logo">
-                    <i class="fi fi-sr-brain"></i>
+            <a href="#" class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
                 </div>
                 <span>WeePhy 2.0</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#" class="nav-link active">Quiz Predictor</a></li>
-                <li><a href="#" class="nav-link">Study Tools</a></li>
-                <li><a href="#" class="nav-link">Calendar</a></li>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-nav="predictor">Predictions</a></li>
+                <li><a href="#" class="nav-link" data-nav="tools">Tools</a></li>
+                <li><a href="#" class="nav-link" data-nav="calendar">Calendar</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Container -->
+    <!-- Main Content -->
     <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero">
             <div class="hero-badge">
-                <i class="fi fi-rr-star"></i>
-                <span>Version 2.0 • The Future of Student Success</span>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>Version 2.0 • Student Intelligence Platform</span>
             </div>
             <h1 class="hero-title">WeePhy 2.0</h1>
             <p class="hero-subtitle">
-                The most advanced student intelligence platform powered by cutting-edge AI.
-                Predict quizzes, optimize study sessions, and dominate your academic journey.
+                Advanced student intelligence platform with AI-powered quiz prediction,
+                comprehensive study tools, and smart academic management
             </p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-value">94%</div>
-                    <div class="stat-label">Accuracy</div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value" data-target="94">0</div>
+                    <div class="stat-label">Accuracy %</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">15K+</div>
-                    <div class="stat-label">Students</div>
+                <div class="stat">
+                    <div class="stat-value" data-target="15">0</div>
+                    <div class="stat-label">K+ Students</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">500+</div>
+                <div class="stat">
+                    <div class="stat-value" data-target="500">0</div>
                     <div class="stat-label">Resources</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat">
                     <div class="stat-value">24/7</div>
                     <div class="stat-label">Support</div>
                 </div>
             </div>
         </section>
 
-        <!-- Tabs Section -->
-        <section class="tabs">
-            <div class="tab-nav">
-                <button class="tab-button active" data-tab="predictor">
-                    <i class="fi fi-rr-search-alt"></i>
+        <!-- Tabs -->
+        <section class="tabs-container">
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="predictor">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
                     <span>Quiz Predictor</span>
                 </button>
-                <button class="tab-button" data-tab="tools">
-                    <i class="fi fi-rr-book-alt"></i>
+                <button class="tab-btn" data-tab="tools">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
                     <span>Study Tools</span>
                 </button>
-                <button class="tab-button" data-tab="calendar">
-                    <i class="fi fi-rr-calendar"></i>
+                <button class="tab-btn" data-tab="calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
                     <span>Calendar</span>
                 </button>
             </div>
 
-            <!-- Tab 1: Quiz Predictor -->
-            <div class="tab-content active" id="predictor">
+            <!-- Predictor Tab -->
+            <div class="tab-panel active" id="predictor">
                 <h2 class="section-title">
-                    <i class="fi fi-rr-chart-histogram"></i>
-                    AI-Powered Quiz Prediction Engine
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    AI-Powered Quiz Predictions
                 </h2>
 
-                <div class="card" style="margin-bottom: var(--space-8);">
-                    <h3 class="card-title">
-                        <i class="fi fi-rr-microchip"></i>
-                        Machine Learning Analysis
-                    </h3>
+                <div class="card" style="margin-bottom: 2rem;">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Advanced Prediction Engine</h3>
                     <div class="feature-list">
                         <div class="feature-item">
-                            <i class="fi fi-rr-check"></i>
-                            <span><strong>Temporal Pattern Recognition:</strong> Analyzes historical quiz timing patterns</span>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span><strong>Temporal Analysis:</strong> Historical quiz timing pattern recognition</span>
                         </div>
                         <div class="feature-item">
-                            <i class="fi fi-rr-check"></i>
-                            <span><strong>Curriculum Tracking:</strong> Monitors syllabus progression and chapter completion</span>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span><strong>Curriculum Tracking:</strong> Syllabus progression monitoring</span>
                         </div>
                         <div class="feature-item">
-                            <i class="fi fi-rr-check"></i>
-                            <span><strong>Instructor Analysis:</strong> Studies professor behavioral patterns</span>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span><strong>Behavioral Analysis:</strong> Professor pattern identification</span>
                         </div>
                         <div class="feature-item">
-                            <i class="fi fi-rr-check"></i>
-                            <span><strong>Statistical Modeling:</strong> Bayesian inference and predictive algorithms</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fi fi-rr-check"></i>
-                            <span><strong>Data Fusion:</strong> Integrates multiple source signals</span>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span><strong>Statistical Modeling:</strong> Bayesian inference algorithms</span>
                         </div>
                     </div>
                 </div>
 
                 <h3 class="section-title">
-                    <i class="fi fi-rr-target"></i>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+                    </svg>
                     Current Predictions
                 </h3>
 
                 <div class="card-grid">
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-calculator"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">Mathematics</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">87%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">Mathematics</h3>
+                            <div class="confidence-badge">87%</div>
                         </div>
-                        <p class="card-text">
-                            High probability quiz Feb 14-16. Professor historically tests after integration chapter completion.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">High probability Feb 14-16. Professor historically tests after integration chapter completion.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>87%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 87%;"></div>
+                                <div class="progress-fill" data-width="87"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Chapter Complete</span>
                             <span class="tag">Historical Pattern</span>
                             <span class="tag">14-Day Interval</span>
@@ -976,25 +1081,25 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-atom"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">Physics</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">72%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">Physics</h3>
+                            <div class="confidence-badge">72%</div>
                         </div>
-                        <p class="card-text">
-                            Moderate-high probability Feb 17-18. Aligns with lab schedule and 3-week quiz cycle.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">Moderate-high probability Feb 17-18. Aligns with lab schedule and 3-week quiz cycle.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>72%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 72%;"></div>
+                                <div class="progress-fill" data-width="72"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Lab Aligned</span>
                             <span class="tag">Announcement</span>
                             <span class="tag">3-Week Cycle</span>
@@ -1003,25 +1108,25 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-code-simple"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">CS - Data Structures</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">91%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">Data Structures</h3>
+                            <div class="confidence-badge">91%</div>
                         </div>
-                        <p class="card-text">
-                            Very high probability Feb 13. Assignment due date correlation and professor confirmation.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">Very high probability Feb 13. Assignment due date correlation and professor confirmation.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>91%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 91%;"></div>
+                                <div class="progress-fill" data-width="91"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Assignment Due</span>
                             <span class="tag">Confirmed</span>
                             <span class="tag">Bi-Weekly</span>
@@ -1030,146 +1135,149 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-flask"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">Chemistry</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">65%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">Chemistry</h3>
+                            <div class="confidence-badge">65%</div>
                         </div>
-                        <p class="card-text">
-                            Moderate probability Feb 19-21. Reaction mechanisms unit nearing completion.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">Moderate probability Feb 19-21. Reaction mechanisms unit nearing completion.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>65%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 65%;"></div>
+                                <div class="progress-fill" data-width="65"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Unit Progress</span>
                             <span class="tag">Friday Pattern</span>
-                            <span class="tag">Monitoring</span>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-language"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">Spanish III</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">79%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">Spanish III</h3>
+                            <div class="confidence-badge">79%</div>
                         </div>
-                        <p class="card-text">
-                            High probability Feb 15. Subjunctive mood complete, vocabulary distributed.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">High probability Feb 15. Subjunctive mood complete, vocabulary distributed.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>79%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 79%;"></div>
+                                <div class="progress-fill" data-width="79"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Grammar Complete</span>
                             <span class="tag">Vocab List</span>
-                            <span class="tag">Monthly</span>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-globe"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
-                            <h3 class="card-title" style="margin: 0;">World History</h3>
-                            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">58%</div>
+                        <div class="card-header">
+                            <h3 class="card-title">World History</h3>
+                            <div class="confidence-badge">58%</div>
                         </div>
-                        <p class="card-text">
-                            Moderate probability Feb 20-22. Documentary schedule and unit completion aligned.
-                        </p>
-                        <div class="progress-container">
+                        <p class="card-text">Moderate probability Feb 20-22. Documentary schedule and unit completion aligned.</p>
+                        <div class="progress-wrapper">
                             <div class="progress-header">
                                 <span>Confidence Level</span>
                                 <span>58%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 58%;"></div>
+                                <div class="progress-fill" data-width="58"></div>
                             </div>
                         </div>
-                        <div class="tag-list">
+                        <div class="tags">
                             <span class="tag">Unit Ending</span>
-                            <span class="tag">Documentary</span>
                             <span class="tag">Post-Presentation</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab 2: Study Tools -->
-            <div class="tab-content" id="tools">
+            <!-- Tools Tab -->
+            <div class="tab-panel" id="tools">
                 <h2 class="section-title">
-                    <i class="fi fi-rr-rocket-lunch"></i>
-                    Comprehensive Study Enhancement Tools
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Study Enhancement Tools
                 </h2>
 
                 <div class="card-grid">
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-lightbulb-on"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Smart Study Planner</h3>
-                        <p class="card-text">
-                            AI-optimized schedules based on your patterns, course difficulty, and assessments.
-                        </p>
+                        <p class="card-text">AI-optimized schedules based on your patterns, course difficulty, and assessments.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Personalized algorithms</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Spaced repetition</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Break optimization</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Energy tracking</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-brain-circuit"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Flashcard Generator</h3>
-                        <p class="card-text">
-                            Auto-generates intelligent flashcards from notes using NLP technology.
-                        </p>
+                        <p class="card-text">Auto-generates intelligent flashcards from notes using NLP technology.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>PDF extraction</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Difficulty sorting</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Multi-format export</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Progress tracking</span>
                             </div>
                         </div>
@@ -1177,55 +1285,59 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-document-signed"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Essay Analyzer</h3>
-                        <p class="card-text">
-                            Advanced writing analysis for structure, grammar, and argumentation.
-                        </p>
+                        <p class="card-text">Advanced writing analysis for structure, grammar, and argumentation.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Thesis evaluation</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Citation checker</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Readability scoring</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Plagiarism detection</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-chart-line-up"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Performance Analytics</h3>
-                        <p class="card-text">
-                            Comprehensive grade tracking with trend analysis and GPA prediction.
-                        </p>
+                        <p class="card-text">Comprehensive grade tracking with trend analysis and GPA prediction.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>GPA calculator</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Trend visualization</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Weak area ID</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Goal setting</span>
                             </div>
                         </div>
@@ -1233,27 +1345,29 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-users-alt"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Study Group Matcher</h3>
-                        <p class="card-text">
-                            Connects you with compatible study partners based on multiple factors.
-                        </p>
+                        <p class="card-text">Connects you with compatible study partners based on multiple factors.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Compatibility scoring</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Schedule coordination</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Virtual rooms</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Resource sharing</span>
                             </div>
                         </div>
@@ -1261,27 +1375,29 @@
 
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fi fi-rr-time-check"></i>
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
                         <h3 class="card-title">Focus Timer Pro</h3>
-                        <p class="card-text">
-                            Advanced Pomodoro with distraction blocking and productivity tracking.
-                        </p>
+                        <p class="card-text">Advanced Pomodoro with distraction blocking and productivity tracking.</p>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Custom intervals</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
-                                <span>Website blocker</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Session analytics</span>
                             </div>
                             <div class="feature-item">
-                                <i class="fi fi-rr-check"></i>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
                                 <span>Achievements</span>
                             </div>
                         </div>
@@ -1289,12 +1405,14 @@
                 </div>
 
                 <!-- GPA Calculator -->
-                <div class="card" style="margin-top: var(--space-12);">
+                <div class="card" style="margin-top: 2rem;">
                     <div class="card-icon">
-                        <i class="fi fi-rr-calculator-simple"></i>
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
                     </div>
-                    <h3 class="card-title">GPA Calculator & Predictor</h3>
-                    
+                    <h3 class="card-title">GPA Calculator & Tracker</h3>
+
                     <div class="form-group">
                         <label class="form-label">Course Name</label>
                         <input type="text" class="form-input" id="courseName" placeholder="e.g., Calculus II">
@@ -1318,48 +1436,65 @@
                         </select>
                     </div>
 
-                    <button class="btn" onclick="calculateGPA()">
-                        <i class="fi fi-rr-calculator"></i>
-                        <span>Calculate GPA</span>
+                    <button class="btn" id="calculateBtn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Add Course</span>
                     </button>
 
-                    <div class="result-box" id="gpaResult">
-                        <h4 class="result-title">
-                            <i class="fi fi-rr-check-circle"></i>
-                            Calculation Results
-                        </h4>
-                        <div class="result-grid" id="gpaResultContent"></div>
+                    <div class="course-list" id="courseList"></div>
+
+                    <div class="summary-card" id="summaryCard" style="display: none;">
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <div class="summary-value" id="overallGPA">0.00</div>
+                                <div class="summary-label">Overall GPA</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-value" id="totalCredits">0</div>
+                                <div class="summary-label">Total Credits</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-value" id="courseCount">0</div>
+                                <div class="summary-label">Courses</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab 3: Calendar -->
-            <div class="tab-content" id="calendar">
+            <!-- Calendar Tab -->
+            <div class="tab-panel" id="calendar">
                 <h2 class="section-title">
-                    <i class="fi fi-rr-calendar-lines"></i>
-                    Academic Calendar & Event Manager
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Academic Calendar
                 </h2>
 
-                <div class="calendar">
+                <div class="calendar-container">
                     <div class="calendar-header">
-                        <button class="calendar-nav-btn" onclick="changeMonth(-1)">
-                            <i class="fi fi-rr-angle-left"></i>
+                        <button class="calendar-nav" id="prevMonth">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 19l-7-7 7-7"/>
+                            </svg>
                         </button>
-                        <div class="calendar-title" id="calendarTitle">February 2026</div>
-                        <button class="calendar-nav-btn" onclick="changeMonth(1)">
-                            <i class="fi fi-rr-angle-right"></i>
+                        <div class="calendar-title" id="calendarMonth">February 2026</div>
+                        <button class="calendar-nav" id="nextMonth">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5l7 7-7 7"/>
+                            </svg>
                         </button>
                     </div>
-
                     <div class="calendar-grid">
-                        <div class="calendar-day-name">Sun</div>
-                        <div class="calendar-day-name">Mon</div>
-                        <div class="calendar-day-name">Tue</div>
-                        <div class="calendar-day-name">Wed</div>
-                        <div class="calendar-day-name">Thu</div>
-                        <div class="calendar-day-name">Fri</div>
-                        <div class="calendar-day-name">Sat</div>
-                        
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
                         <div id="calendarDays"></div>
                     </div>
                 </div>
@@ -1368,108 +1503,131 @@
     </div>
 
     <script>
+        // State
+        let currentMonth = 1; // February
+        let currentYear = 2026;
+        let courses = [];
 
-        // Custom Cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorRing = document.querySelector('.cursor-ring');
-        
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
+        const events = {
+            '2026-02-13': [{title: 'CS Quiz', time: '10:00 AM'}],
+            '2026-02-14': [{title: 'Math Assignment Due', time: '11:59 PM'}],
+            '2026-02-15': [{title: 'Spanish Quiz', time: '2:00 PM'}],
+            '2026-02-17': [{title: 'Physics Lab', time: '1:00 PM'}],
+            '2026-02-19': [{title: 'Study Group', time: '4:00 PM'}],
+            '2026-02-25': [{title: 'Calculus Midterm', time: '9:00 AM'}]
+        };
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initTabs();
+            initNavigation();
+            animateStats();
+            animateProgressBars();
+            renderCalendar();
+            initGPACalculator();
+            showToast('Welcome to WeePhy 2.0!');
         });
 
-        function updateCursor() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            requestAnimationFrame(updateCursor);
-        }
-        updateCursor();
-
-        // Hover effects
-        document.querySelectorAll('a, button, input, .card, .calendar-day').forEach(el => {
-            el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
-        });
-
-        // Tab System
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const tab = button.dataset.tab;
-                
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                document.getElementById(tab).classList.add('active');
+        // Tabs
+        function initTabs() {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.dataset.tab;
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
             });
-        });
+        }
+
+        // Navigation
+        function initNavigation() {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = link.dataset.nav;
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    link.classList.add('active');
+                    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        // Animate Stats
+        function animateStats() {
+            document.querySelectorAll('.stat-value').forEach(stat => {
+                const target = parseInt(stat.dataset.target);
+                if (!target) return;
+                
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 30);
+            });
+        }
+
+        // Animate Progress Bars
+        function animateProgressBars() {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    const width = bar.dataset.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 100);
+                });
+            }, 500);
+        }
 
         // GPA Calculator
-        function calculateGPA() {
-            const courseName = document.getElementById('courseName').value.trim();
-            const currentGrade = parseFloat(document.getElementById('currentGrade').value);
-            const creditHours = parseFloat(document.getElementById('creditHours').value);
-            const gradeScale = document.getElementById('gradeScale').value;
+        function initGPACalculator() {
+            document.getElementById('calculateBtn').addEventListener('click', addCourse);
+        }
 
-            if (!courseName || isNaN(currentGrade) || isNaN(creditHours)) {
-                showNotification('Please fill all fields', 'error');
+        function addCourse() {
+            const name = document.getElementById('courseName').value.trim();
+            const grade = parseFloat(document.getElementById('currentGrade').value);
+            const credits = parseFloat(document.getElementById('creditHours').value);
+            const scale = parseFloat(document.getElementById('gradeScale').value);
+
+            if (!name || isNaN(grade) || isNaN(credits)) {
+                showToast('Please fill all fields', true);
                 return;
             }
 
-            const scale = parseFloat(gradeScale);
-            let gpa;
-            
-            if (currentGrade >= 93) gpa = scale;
-            else if (currentGrade >= 90) gpa = scale - 0.3;
-            else if (currentGrade >= 87) gpa = scale - 0.7;
-            else if (currentGrade >= 83) gpa = scale - 1.0;
-            else if (currentGrade >= 80) gpa = scale - 1.3;
-            else if (currentGrade >= 77) gpa = scale - 1.7;
-            else if (currentGrade >= 73) gpa = scale - 2.0;
-            else if (currentGrade >= 70) gpa = scale - 2.3;
-            else if (currentGrade >= 67) gpa = scale - 2.7;
-            else if (currentGrade >= 65) gpa = scale - 3.0;
-            else gpa = 0;
+            const gpa = calculateGPA(grade, scale);
+            const letter = getLetterGrade(grade);
 
-            const letterGrade = getLetterGrade(currentGrade);
-            const qualityPoints = (gpa * creditHours).toFixed(2);
+            courses.push({ name, grade, credits, gpa, letter, scale });
+            renderCourses();
+            updateSummary();
+            clearForm();
+            showToast('Course added successfully!');
+        }
 
-            document.getElementById('gpaResultContent').innerHTML = `
-                <div class="result-row">
-                    <span>Course:</span>
-                    <strong>${courseName}</strong>
-                </div>
-                <div class="result-row">
-                    <span>Percentage:</span>
-                    <strong>${currentGrade}%</strong>
-                </div>
-                <div class="result-row">
-                    <span>Letter Grade:</span>
-                    <strong>${letterGrade}</strong>
-                </div>
-                <div class="result-row">
-                    <span>GPA Value:</span>
-                    <strong>${gpa.toFixed(2)}</strong>
-                </div>
-                <div class="result-row">
-                    <span>Credit Hours:</span>
-                    <strong>${creditHours}</strong>
-                </div>
-                <div class="result-row">
-                    <span>Quality Points:</span>
-                    <strong>${qualityPoints}</strong>
-                </div>
-            `;
-
-            document.getElementById('gpaResult').classList.add('show');
-            showNotification('GPA calculated successfully!');
+        function calculateGPA(percentage, scale) {
+            if (percentage >= 93) return scale;
+            if (percentage >= 90) return scale - 0.3;
+            if (percentage >= 87) return scale - 0.7;
+            if (percentage >= 83) return scale - 1.0;
+            if (percentage >= 80) return scale - 1.3;
+            if (percentage >= 77) return scale - 1.7;
+            if (percentage >= 73) return scale - 2.0;
+            if (percentage >= 70) return scale - 2.3;
+            if (percentage >= 67) return scale - 2.7;
+            if (percentage >= 65) return scale - 3.0;
+            return 0;
         }
 
         function getLetterGrade(percentage) {
@@ -1486,36 +1644,75 @@
             return 'F';
         }
 
+        function renderCourses() {
+            const list = document.getElementById('courseList');
+            list.innerHTML = courses.map((course, index) => `
+                <div class="course-item">
+                    <div class="course-info">
+                        <div class="course-name">${course.name}</div>
+                        <div class="course-details">${course.grade}% • ${course.letter} • ${course.credits} credits</div>
+                    </div>
+                    <div class="course-gpa">${course.gpa.toFixed(2)}</div>
+                    <button class="remove-btn" onclick="removeCourse(${index})">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function removeCourse(index) {
+            courses.splice(index, 1);
+            renderCourses();
+            updateSummary();
+            showToast('Course removed');
+        }
+
+        function updateSummary() {
+            if (courses.length === 0) {
+                document.getElementById('summaryCard').style.display = 'none';
+                return;
+            }
+
+            const totalCredits = courses.reduce((sum, c) => sum + c.credits, 0);
+            const weightedSum = courses.reduce((sum, c) => sum + (c.gpa * c.credits), 0);
+            const overallGPA = weightedSum / totalCredits;
+
+            document.getElementById('overallGPA').textContent = overallGPA.toFixed(2);
+            document.getElementById('totalCredits').textContent = totalCredits;
+            document.getElementById('courseCount').textContent = courses.length;
+            document.getElementById('summaryCard').style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('courseName').value = '';
+            document.getElementById('currentGrade').value = '';
+            document.getElementById('creditHours').value = '';
+        }
+
         // Calendar
-        let currentMonth = 1; // February
-        let currentYear = 2026;
-
-        const events = {
-            '2026-02-13': [{title: 'CS Quiz', time: '10:00 AM'}],
-            '2026-02-14': [{title: 'Math Assignment Due', time: '11:59 PM'}],
-            '2026-02-15': [{title: 'Spanish Quiz', time: '2:00 PM'}],
-            '2026-02-17': [{title: 'Physics Lab', time: '1:00 PM'}],
-            '2026-02-19': [{title: 'Study Group', time: '4:00 PM'}],
-            '2026-02-25': [{title: 'Calculus Midterm', time: '9:00 AM'}]
-        };
-
         function renderCalendar() {
             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                               'July', 'August', 'September', 'October', 'November', 'December'];
             
-            document.getElementById('calendarTitle').textContent = 
-                `${monthNames[currentMonth]} ${currentYear}`;
+            document.getElementById('calendarMonth').textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
             const firstDay = new Date(currentYear, currentMonth, 1).getDay();
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const prevMonthDays = new Date(currentYear, currentMonth, 0).getDate();
             const today = new Date();
             
             let html = '';
             
-            for (let i = 0; i < firstDay; i++) {
-                html += '<div class="calendar-day" style="opacity: 0.3;"></div>';
+            // Previous month days
+            for (let i = firstDay - 1; i >= 0; i--) {
+                html += `<div class="calendar-day other-month">
+                    <div class="calendar-day-number">${prevMonthDays - i}</div>
+                </div>`;
             }
             
+            // Current month days
             for (let day = 1; day <= daysInMonth; day++) {
                 const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                 const dayEvents = events[dateStr] || [];
@@ -1525,62 +1722,60 @@
                 
                 html += `
                     <div class="calendar-day ${isToday ? 'today' : ''}">
-                        <div class="calendar-day-num">${day}</div>
+                        <div class="calendar-day-number">${day}</div>
                         ${dayEvents.map(e => `<div class="calendar-event">${e.title}</div>`).join('')}
                     </div>
                 `;
             }
             
+            // Next month days
+            const totalCells = firstDay + daysInMonth;
+            const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+            for (let i = 1; i <= remainingCells; i++) {
+                html += `<div class="calendar-day other-month">
+                    <div class="calendar-day-number">${i}</div>
+                </div>`;
+            }
+            
             document.getElementById('calendarDays').innerHTML = html;
         }
 
-        function changeMonth(delta) {
-            currentMonth += delta;
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentMonth--;
             if (currentMonth < 0) {
                 currentMonth = 11;
                 currentYear--;
-            } else if (currentMonth > 11) {
+            }
+            renderCalendar();
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
                 currentMonth = 0;
                 currentYear++;
             }
             renderCalendar();
-        }
+        });
 
-        // Notification
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <i class="fi fi-rr-${type === 'error' ? 'cross-circle' : 'check-circle'}"></i>
+        // Toast Notification
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
                 <span>${message}</span>
             `;
             
-            document.body.appendChild(notification);
+            document.body.appendChild(toast);
 
             setTimeout(() => {
-                notification.classList.add('fadeOut');
-                setTimeout(() => notification.remove(), 300);
-            }, 3500);
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
         }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCalendar();
-            
-            setTimeout(() => {
-                document.querySelectorAll('.progress-fill').forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0%';
-                    setTimeout(() => bar.style.width = width, 100);
-                });
-            }, 500);
-
-            console.log('%cWeePhy 2.0 - Student Intelligence Platform', 'color: #6366f1; font-size: 20px; font-weight: bold;');
-            console.log('%c✓ System initialized', 'color: #10b981;');
-            
-            showNotification('Welcome to WeePhy 2.0!');
-        });
-    
     </script>
 </body>
 </html>
